@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}| Search{% endblock title %}
+
+{% block content %}
+
+<h1>Search Results</h1>
+
+{% for post in post_list %}
+  <div>
+    <h3><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h3>
+    <p>Author: {{ post.author }}</p>
+    <p>Date published: {{ post.published_date }}</p>
+  </div>
+{% endfor %}
+
+{% endblock content %}

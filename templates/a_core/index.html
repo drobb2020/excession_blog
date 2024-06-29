@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}| Home{% endblock title %}
+
+{% block content %}
+
+<h1 class="mt-5">Excession Development Blog</h1>
+  <div class="row mt-3">
+    <div class="col-md-9">
+      <img
+        src="{% static 'images/landing1.jpg' %}"
+        alt="Excession Blog landing page"
+        class="img-fluid mb-3"
+      />
+    </div>
+    <div class="col-md-3">
+      <div class="row">
+        {% for post in posts %}
+        <div class="col">
+          {% if post.is_featured %}
+          <a href="{% url 'post-detail' post.slug %}" class="text-decoration-none">
+            <div class="card" style="width: 15rem;">
+              <img src="{{ post.post_image.url }}" class="card-img-top" alt="{{ post.title }}">
+              <div class="card-body">
+                <h5 class="card-title">{{ post.title }}</h5>
+              </div>
+            </div>
+          </a>
+          {% endif %}
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+{% if user.is_authenticated %}
+<div class="row">
+  <div class="col-md-11">
+    <h3>Hi 
+      {% if user.first_name and user.last_name %}
+        {{ user.first_name|title }} {{ user.last_name|title }}
+      {% else %}
+        {{ user.email }}!
+      {% endif %}
+    </h3>
+    <p class="lead">
+      This is a fictitious web development company designed to showcase and highlight new web
+      technologies and features I am learning. The blog articles are mostly
+      geared to Python and the Django framework, as well as postings on OpenText
+      software that I work with. This is first and foremost a development site
+      where I can learn the good, the bad and the ugly of web development.
+    </p>
+  </div>
+{% else %}
+  <div class="text-center">
+      <div class="col-md-6 offset-md-3">
+        <p class="lead mb-3">Please join the blog by creating an account.</p>
+        <a href="{% url 'account_signup' %}" class="btn btn-secondary btn-lg">Get Started</a>
+      </div>
+  </div>
+{% endif %}
+</div>
+
+{% endblock content %}

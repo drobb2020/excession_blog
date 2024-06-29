@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}| {{ post.slug }}{% endblock title %}
+
+{% block content %}
+
+<div class="container">
+  <div class="row justify-content-md-center py-3">
+    <div class="card col-md-8 mb-3 shadow">
+      <img
+        src="{{ post.post_image.url }}"
+        class="card-img-top mt-3"
+        alt="{{ post.title }}"
+      />
+      <div class="card-body">
+        <div class="d-flex">
+          <div>
+            <img
+              class="avatar_single"
+              src="{{ post.author.profile.avatar.url }}"
+            />
+          </div>
+          <h1 class="card-title ms-2 mb-3">{{ post.title }}</h1>
+        </div>
+        <hr />
+        <div>
+          <p class="card-text">Written by: 
+            <b>
+            {% if post.author.first_name and post.author.last_name %}
+              {{ post.author.first_name|title }} {{ post.author.last_name|title }}
+            {% else %}
+              {{ post.author }}  
+            {% endif %}
+            </b>
+          </p>
+          <p class="card-text">{{ post.content|safe }}</p>
+          <p class="card-text">
+            <small class="text-muted"
+              >First published on: {{ post.published_date }}</small
+            >
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- Generate PDF button -->
+    <div class="col-md-8">
+      <a href="{% url 'posts' %}" class="btn btn-secondary"><i class="fa-regular fa-arrow-left"></i> All Posts</a>
+      <a href="{% url 'generate-pdf' post.slug %}" class="btn btn-secondary"><i class="fa-regular fa-file-pdf"></i> Generate PDF</a>
+      {% if user == post.author %}
+      <a href="{% url 'post-update' post.slug %}" class="btn btn-secondary my-2"><i class="fa-regular fa-pen-to-square"></i> Update Post</a>
+      <a href="{% url 'post-delete' post.slug %}" class="btn btn-danger my-2"><i class="fa-regular fa-trash"></i> Delete Post</a>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

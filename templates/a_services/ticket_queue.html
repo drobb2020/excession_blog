@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}| Ticket Queue{% endblock title %}
+
+{% block scripts %}
+
+{% endblock scripts %}
+
+{% block content %}
+
+<h1>Excession Blog Helpdesk Ticket Queue</h1>
+<p class="lead">Unassigned Ticket Queue.</p>
+<p>Unassigned tickets should not remain in the queue for more than <b>30</b> minutes!</p>
+{% if tickets %}
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Ticket Number</th>
+        <th scope="col">Title</th>
+        <th scope="col">Created On</th>
+        <th scope="col">Customer</th>
+        <th scope="col">Assigned To</th>
+        <th scope="col">Status</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for ticket in tickets %}
+          <tr>
+            <th scope="row"><small>{{ ticket.ticket_number }}</small></th>
+            <td><small>{{ ticket.title }}</small></td>
+            <td><small>{{ ticket.date_created }}</small></td>
+            <td><small>{{ ticket.created_by }}</small></td>
+            <td><small>{{ ticket.assigned_to|title }}</small></td>
+            {% if ticket.ticket_status == 'Active' %}
+              <td><span class="badge bg-success">{{ ticket.ticket_status }}</span></td>
+            {% elif ticket.ticket_status == 'Pending' %}
+              <td><span class="badge bg-warning">{{ ticket.ticket_status }}</span></td>
+            {% elif ticket.ticket_status == 'Completed' %}
+              <td><span class="badge bg-danger">{{ ticket.ticket_status }}</span></td>
+            {% endif %}
+            <td><small><a href="{% url 'accept-ticket' ticket.id %}" class="badge bg-info text-decoration-none">Accept</a></small></td>
+          </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<h5>The queue is currently empty, good work. Don't forget to work on any active tickets in your workspace, and come back often to check for new tickets.</h5>
+{% endif %}
+
+{% endblock content %}

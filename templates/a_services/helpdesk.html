@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}| Helpdesk{% endblock title %} 
+
+{% block content %}
+
+<div class="container py-5">
+  <div class="row justify-content-md-center py-3">
+    <div class="col-md-8 py-3 mb-3">
+      <h1>Help Desk</h1>
+      <p class="lead">
+        If you have an issue with the website, or creating a post, please create
+        a helpdesk ticket and we promise to resolve your problem as soon as
+        possible.
+      </p>
+      <button class="btn btn-secondary mb-4">
+        <a href="#" class="text-decoration-none">
+          <i class="fa-regular fa-plus-large"></i> Open a new ticket</a
+        >
+      </button>
+      <div class="list-group">
+        <table class="table table-secondary table-hover shadow-lg rounded">
+          <thead>
+            <tr>
+              <th scope="col" class="text-dark">Ticket Subject</th>
+              <th scope="col" class="text-dark">From</th>
+              <th scope="col" class="text-dark">Assigned to</th>
+              <th scope="col" class="text-dark">Status</th>
+              <th scope="col" class="text-dark"></th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for ticket in tickets %}
+            <tr class="table-light">
+              <td>{{ ticket.subject|truncatechars:30 }}</td>
+              <td>{{ ticket.sender }}</td>
+              <td>{{ ticket.recipient }}</td>
+              <td>{{ ticket.status }}</td>
+              <td>
+                <a href="#" class="text-decoration-none text-danger">
+                  <i class="fa-regular fa-trash-can-xmark"></i> Delete
+                </a>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}

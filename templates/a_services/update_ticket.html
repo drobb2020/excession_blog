@@ -1,0 +1,41 @@
+{% extends 'base.html' %} 
+
+{% load static %} 
+{% load widget_tweaks %} 
+
+{% block title %}| Update Ticket{% endblock title %} 
+
+{% block scripts %} 
+
+{% endblock scripts %} 
+
+{% block content %}
+
+<div class="row">
+  <div class="col-md-6">
+    <div class="card mx-auto" style="width: 40rem">
+      <!-- <img src="..." class="card-img-top" alt="..."> -->
+      <div class="card-body">
+        <h3 class="card-title mb-3">Update Ticket</h3>
+        <h5>Note to Customer</h5>
+          <p class="lead">
+            If you have additional information to add to the ticket please do so now. Your assigned engineer will be notified about your update.
+          </p>
+        <form action="" method="post">
+          {% csrf_token %}
+          <div class="mb-3">
+            <label for="" class="form-label">Issue Title</label>
+            {% render_field form.title class="form-control" %}
+          </div>
+          <div class="mb-3">
+            <label for="" class="form-label">Description</label>
+            {% render_field form.description class="form-control" %}
+          </div>
+          <button type="submit" class="btn btn-primary w-100">Update</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

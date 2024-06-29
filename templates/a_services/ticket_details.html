@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}| Ticket Detail{% endblock title %}
+
+{% block scripts %}
+
+{% endblock scripts %}
+
+{% block content %}
+
+<h1>{{ ticket.title }} - Ticket Detail</h1>
+
+{% if ticket %}
+<div class="row">
+    <div class="col-md-6 mt-5">
+        <div class="card mx-auto p-3" style="width: 40rem">
+            <!-- <img src="..." alt="..."> -->
+            <p class="text-sm"><b>Ticket: </b> {{ ticket.ticket_number }}</p>
+            <h5 class="card-title mb-3 border-bottom border-2">{{ ticket.title }}</h5>
+            <p class="card-text"><b>Description: </b>{{ ticket.description }}</p>
+            <div class="row mb-4">
+                <div class="col">
+                    <b>Date Created:</b> {{ ticket.date_created }}
+                </div>
+                <div class="col">
+                    <b>Assigned To:</b>
+                    {% if ticket.assigned_to %}
+                        {{ ticket.assigned_to|title }}
+                    {% else %}
+                        Not Assigned
+                    {% endif %}
+                </div>
+            </div>
+            <div class="row mb-4">
+                <div class="col-md-12">
+                    {% if ticket.date_accepted %}
+                        <b>Date Accepted: </b> {{ ticket.date_accepted }}
+                    {% else %}
+                        <b>Date Accepted: </b> <span class="badge bg-warning">No Date</span>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="row mb-4">
+                <div class="col-md-6">
+                    {% if ticket.is_resolved %}
+                      <b>Resolved: </b> <span class="badge bg-success">Yes, resolved</span>
+                    {% else %}
+                      <b>Resolved: </b> <span class="badge bg-warning">Not Yet</span>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="row mb-4">
+                <div class="col-md-6">
+                    <b>Created by: </b> {{ ticket.created_by|title }}
+                </div>
+                <div class="col-md-6">
+                    <b>Ticket Status: </b> <span class="badge bg-info"> {{ ticket.ticket_status }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endif %}
+    
+    <div class="col-4 mt-5">
+        <div class="card mx-auto" style="width: 40rem;">
+            <!-- <img src="..." alt="..."> -->
+            <div class="card-body">
+                <h5 class="card-title mb-3">All Tickets Created by {{ ticket.created_by }}</h5>
+                {% for ticket in tickets_per_user %}
+                  <p class="card-text"><a href="{% url 'ticket-details' ticket.id %}">{{ ticket.ticket_number }}</a></p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% if request.user.is_engineer and not ticket.is_resolved %}
+  <a href="{% url 'update-ticket' ticket.id %}" class="btn btn-warning mt-4" data-bs-toggle="modal" data-bs-target="#exampleModal">Confirm Resolution</a>
+{% endif %}
+{% if request.user.is_customer and not ticket.is_resolved %}
+  <a href="{% url 'update-ticket' ticket.id %}" class="btn btn-primary mt-4">Update Ticket</a>
+{% endif %}
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Do you want to close this ticket?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <a href="{% url 'close-ticket' ticket.id %}" class="btn btn-primary">Close Ticket</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock content %}

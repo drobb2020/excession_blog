@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excession Blog {% block title %}{% endblock title %}</title>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{% static 'assets/favicon.ico' %}" type="image/x-icon">
+    <!-- Bootstrap (Bootswatch) -->
+    <link rel="stylesheet" href="https://bootswatch.com/5/slate/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://kit.fontawesome.com/a07c3124f0.css" crossorigin="anonymous">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <!-- HTMX -->
+    <script src="https://unpkg.com/htmx.org@1.9.12"></script>
+    <!-- Alpine.js -->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.14.0/cdn.min.js" integrity="sha512-4e/5PZ1eoLJMDjaJXTHkWRA0yec8bm07/iINYSd5rdJ38jGm5OZkEi3J+7LqSDWNATNJ4/aneNlrk2AYnnckIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- Custom JavaScript -->
+    <script src="{% static 'js/base.js' %}"></script>
+</head>
+<body id="wrap">
+    {% include 'includes/navbar.html' %}
+    <div class="container mt-5">
+        {% block content %}
+        
+        {% endblock content %}
+    </div>
+    {% include 'includes/footer.html' %}
+    
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}| Dashboard{% endblock title %}
+
+{% block scripts %}
+
+{% endblock scripts %}
+
+{% block content %}
+
+{% if request.user.is_customer  %}
+<section class="container mt-5">
+    <div class="p-5 mb-4 bg-dark rounded-3">
+        <div class="container-fluid py-5">
+            <h1 class="display-5 fw-bold">Customer's Dashboard</h1>
+            <div class="d-flex g-4">
+                <p class="col-md-8 fs-4">
+                    "Welcome to our helpdesk app! Whether you're seeking technical support, guidance on our services, or simply have a query, we're here to assist you every step of the way. Our dedicated team is committed to resolving your issues promptly and ensuring a seamless experience. Feel free to explore our resources and submit your requests—we're eager to help you achieve your goals efficiently. Let's get started!"
+                </p>
+                <div class="col-md-4 bg-light text-dark p-5 rounded-3 shadow-lg">
+                    <h5 class="text-center">Your Ticket Stats</h5><br />
+                    <div class="d-flex flex-row align-items-center rounded-3 border border-2 border-danger px-2 mb-1">
+                        <div class="m-0 me-auto">Pending:</div>
+                        <div class="text-danger fs-1 m-0">{{ pending_tickets }}</div>
+                    </div>
+                    <div class="d-flex flex-row align-items-center rounded-3 border border-2 border-info px-2 mb-1">
+                        <p class="m-0 me-auto">Active: </p>
+                        <p class="text-info fs-1 m-0">{{ active_tickets }}</p>
+                    </div>
+                    <div class="d-flex flex-row align-items-center rounded-3 border border-2 border-success px-2">
+                        <p class="m-0 me-auto">Completed: </p>
+                        <p class="text-success fs-1 m-0">{{ completed_tickets }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex">
+                <a href="{% url 'create-ticket' %}" class="btn btn-primary btn-lg me-2">Open a Ticket</a>
+                <a href="{% url 'all-tickets' %}" class="btn btn-secondary btn-lg">Show All my tickets</a>
+            </div>
+            <!-- <button class="btn btn-primary btn-lg" type="button">Get Started</button> -->
+        </div>
+    </div>
+</section>
+{% elif request.user.is_engineer %}
+<section class="container mt-5">
+    <div class="p-5 mb-4 bg-dark rounded-3">
+        <div class="container-fluid py-5">
+            <h1 class="display-5 fw-bold">Engineer's Dashboard</h1>
+            <div class="d-flex g-3">
+                <p class="col-md-8 fs-4">
+                    "Welcome back to our helpdesk app! As a dedicated member of our support team, your expertise and commitment play a vital role in delivering exceptional service to our users. From troubleshooting technical issues to providing insightful solutions, your contributions make a significant difference every day. Stay informed with the latest updates and tickets, and continue to uphold our high standards of customer care. Let’s dive in and ensure every user receives the assistance they need promptly and effectively."
+                </p>
+                <div class="col-md-4 bg-light text-dark p-5 rounded-3 shadow-lg">
+                    <h5 class="text-center">Ticket Queue Stats</h5>
+                    <div class="d-flex flex-row align-items-center rounded-3 border border-2 border-danger px-2 mb-1">
+                        <div class="m-0 me-auto">Pending:</div>
+                        <div class="text-danger fs-1 m-0">{{ eng_pending }}</div>
+                    </div>
+                    <div class="d-flex flex-row align-items-center rounded-3 border border-2 border-info px-2 mb-1">
+                        <p class="m-0 me-auto">Active: </p>
+                        <p class="text-info fs-1 m-0">{{ eng_active }}</p>
+                    </div>
+                    <div class="d-flex flex-row align-items-center rounded-3 border border-2 border-success px-2">
+                        <p class="m-0 me-auto">Completed: </p>
+                        <p class="text-success fs-1 m-0">{{ eng_completed }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex">
+              <a href="{% url 'ticket-queue' %}" class="btn btn-primary btn-lg">Go to Ticket Queue</a>
+              <a href="{% url 'workspace' %}" class="btn btn-primary btn-lg">My Workspace</a>
+            </div>
+            <!-- <button class="btn btn-primary btn-lg" type="button">Go to the ticket queue</button> -->
+        </div>
+    </div>
+</section>
+{% endif %}
+
+{% endblock content %}

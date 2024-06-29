@@ -1,0 +1,65 @@
+{% extends "base.html" %} 
+
+{% load static %} 
+
+{% block title %}| Workspace for {{ request.user.username }}{% endblock title %} 
+
+{% block scripts %} {% endblock scripts %} 
+
+{% block content %}
+
+<h1>
+  {{ request.user.first_name|title }} {{ request.user.last_name|title }}'s
+  Workspace
+</h1>
+
+{% if tickets %}
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Ticket Number</th>
+      <th scope="col">Title</th>
+      <th scope="col">Created On</th>
+      <th scope="col">Customer</th>
+      <th scope="col">Assigned To</th>
+      <th scope="col">Status</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for ticket in tickets %}
+    <tr>
+      <th scope="row"><small>{{ ticket.ticket_number }}</small></th>
+      <td><small>{{ ticket.title }}</small></td>
+      <td><small>{{ ticket.date_created }}</small></td>
+      <td><small>{{ ticket.created_by }}</small></td>
+      <td><small>{{ ticket.assigned_to|title }}</small></td>
+      {% if ticket.ticket_status == 'Active' %}
+      <td><span class="badge bg-success">{{ ticket.ticket_status }}</span></td>
+      {% elif ticket.ticket_status == 'Pending' %}
+      <td><span class="badge bg-warning">{{ ticket.ticket_status }}</span></td>
+      {% elif ticket.ticket_status == 'Completed' %}
+      <td><span class="badge bg-danger">{{ ticket.ticket_status }}</span></td>
+      {% endif %}
+      <td>
+        <small
+          ><a
+            href="{% url 'ticket-details' ticket.id %}"
+            class="badge bg-info text-decoration-none"
+            >View Details</a
+          ></small
+        >
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% else %}
+<h5>
+  Your workspace is currently empty, good work. Go back to the ticket queue to check for new tickets.
+</h5>
+{% endif %}
+<div class="mt-3">
+  <a href="{% url 'ticket-queue' %}" class="btn btn-primary btn-lg">Return to Queue</a>
+</div>
+{% endblock content %}

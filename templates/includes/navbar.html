@@ -1,0 +1,82 @@
+<nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{% url 'index' %}">Excession Blog</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarColor01"
+      aria-controls="navbarColor01"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarColor01">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'posts' %}"
+            >blog
+            <span class="visually-hidden">(current)</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'about' %}">About</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ms-auto me-2">
+        {% if user.is_authenticated %}
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{{ user.profile.name }}</a>
+          <div class="dropdown-menu">
+            {% if user.is_superuser %}
+            <a class="dropdown-item" href="{% url 'post-status' %}">Update Post Status</a>
+            
+            {% endif %}
+            {% if user.is_engineer %}
+              <a class="dropdown-item" href="{% url 'ticket-queue' %}">Ticket Queue</a>
+              <a class="dropdown-item" href="{% url 'workspace' %}">My Ticket Workspace</a>
+              <div class="dropdown-divider"></div>
+            {% elif user.is_customer %}
+              <a href="{% url 'create-ticket' %}" class="dropdown-item">Create Ticket</a>
+              <a href="{% url 'all-tickets' %}" class="dropdown-item">All My Tickets</a>
+              <div class="dropdown-divider"></div>
+            {% endif %}
+            <a class="dropdown-item" href="{% url 'profile' %}">My Profile</a>
+            <a class="dropdown-item" href="{% url 'profile-edit' %}">Edit Profile</a>
+            <a class="dropdown-item" href="{% url 'profile-settings' %}">Settings</a>
+            <a href="{% url 'account_change_password' %}" class="dropdown-item">Change Password</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="{% url 'account_logout' %}">Log Out</a>
+          </div>
+        </li>
+        {% else %}
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'account_signup' %}">Sign Up</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'account_login' %}">Log In</a>
+        </li>
+        {% endif %}
+      </ul>
+      <form class="d-flex" action="{% url 'search-results' %}" method="get">
+        <input
+          class="form-control me-sm-2"
+          name="q"
+          type="search"
+          placeholder="Search"
+          aria-label="search"
+        />
+        <button
+          class="btn btn-secondary my-2 my-sm-0"
+          type="submit"
+        >
+          Search
+        </button>
+      </form>
+    </div>
+  </div>
+</nav>

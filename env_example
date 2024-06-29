@@ -1,0 +1,17 @@
+# Django
+ENVIRONMENT=development  # production
+DJANGO_SECRET_KEY=<your secret key>
+DEBUG=False
+ALLOWED_HOSTS=localhost,127.0.0.1,<your domain name>
+
+# Database
+DB_NAME=<database name>
+DB_USER=<database user>
+DB_PASSWORD=<database passowrd>
+DB_HOST=<database host address>
+DB_PORT=<database server port>
+
+# EMAIL
+EMAIL_HOST=<your email server url>
+EMAIL_USER=<email server login account>
+EMAIL_PASS=<email server login password>

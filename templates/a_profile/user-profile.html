@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% load static %} 
+
+{% block title %}| Profile{% endblock title %}
+
+{% block content %}
+
+<section class="jumbotron mx-auto">
+  <div class="container">
+    <div class="card text-center">
+      <div class="card-header">
+        <img
+          src="{{ profile.avatar.url }}"
+          class="mx-auto img-fluid"
+          alt="{{ profile.name }}"
+        />
+      </div>
+      <div class="card-body mx-auto mb-3" style="max-width: 30rem;">
+        <h5 class="card-title">{{ profile.name }}</h5>
+        <p class="card-text">{{ profile.short_intro }}</p>
+        <p class="card-text m-0">{{ profile.fav_quote }}</p>
+        <p class="card-text fw-bold">{{ profile.fav_quote_author }}</p>
+        <p class="card-text">I'm located in {{ profile.location }}</p>
+        <h3 class="card-title">About Me</h3>
+        <p class="card-text">{{ profile.bio }}</p>
+      </div>
+      <div class="card-footer text-body-secondary">
+        <div class="d-flex flex-row justify-content-evenly my-3">
+          {% if profile.social_github %}
+          <a title="Github" href="{{ profile.social_github }}" target="_blank"
+            ><i class="fa-brands fa-github fa-xl"></i
+          ></a>
+          {% endif %} 
+          {% if profile.social_stackoverflow %}
+          <a
+            title="Stackoverflow"
+            href="{{ profile.social_stackoverflow }}"
+            target="_blank"
+            ><i class="fa-brands fa-stack-overflow fa-xl"></i
+          ></a>
+          {% endif %} 
+          {% if profile.social_linkedin %}
+          <a
+            title="LinkedIn"
+            href="{{ profile.social_linkedin }}"
+            target="_blank"
+            ><i class="fa-brands fa-linkedin-in fa-xl"></i
+          ></a>
+          {% endif %} 
+          {% if profile.social_youtube %}
+          <a title="YouTube" href="{{ profile.social_youtube }}" target="_blank"
+            ><i class="fa-brands fa-youtube fa-xl"></i
+          ></a>
+          {% endif %} 
+          {% if profile.social_website %}
+          <a
+            title="Personal Website"
+            href="{{ profile.social_website }}"
+            target="_blank"
+            ><i class="fa-light fa-earth-americas fa-xl"></i
+          ></a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock content %}

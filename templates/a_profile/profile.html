@@ -1,0 +1,36 @@
+{% extends 'base.html' %} 
+
+{% load static %} 
+
+{% block title %}| Profile{% endblock title %} 
+
+{% block content %}
+
+<div class="row border-2 shadow-lg rounded py-4 mx-auto" style="max-width: 60rem;">
+  <div class="col-md-6 offset-md-3">
+    <div class="text-center">
+      <img class="img-fluid rounded-circle" src="{{ profile.avatar }}" />
+      <div class="text-center">
+        <h1>{{ profile.name }}</h1>
+        <div class="mb-2">@{{ profile.user.username }}</div>
+        {% if profile.bio %}
+        <div class="mt-4">{{ profile.bio|linebreaksbr }}</div>
+        {% endif %}
+        {% if profile.fav_quote %}
+        <div class="mt-4">{{ profile.fav_quote|linebreaksbr }}</div>
+        {% endif %}
+        <h5 class="text-center">{{ profile.fav_quote_author }}</h5>
+        {% if profile.social_website %}
+          <a
+            title="Personal Website"
+            href="{{ profile.social_website }}"
+            target="_blank"
+            ><i class="fa-light fa-earth-americas fa-xl"></i
+          ></a>
+          {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

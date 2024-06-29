@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}| About{% endblock title %}
+
+{% block content %}
+
+<h1 class="mt-5">About Excession Blog</h1>
+<p class="lead">
+  This is an updated Django Blog application with all the bells and whistles I've been learning. This blog site is an internal project and is not accessible from the web. I use this site to keep notes about the Django modules I'm learning and working with as well as the software I support at OpenText.
+</p>
+<h2 class="my-3">
+  Why Excession
+</h2>
+<p>Excession by Iain M. Banks is one of my favorite Science-fiction books. I think that handling situations that do not fit normal parameters is an important skill in all walks of life.</p>
+<p class="lead mt-3 mb-5">
+  An out of context problem or event - something that is so large or different from normal that it causes a system or society to change in a fundamental way. Originally defined by author Iain M Banks and used as the title of a novel.<br />
+  The corona virus is an excession. Now governments will consider giving money directly to the people instead of taxing them, as without the support everything we do will fail.
+</p>
+<h2>Built With...</h2>
+<h3>Production Packages</h3>
+<p>These packages will be deployed in production.</p>
+<ul class="list-unstyled">
+    <li><i class="fa-sharp fa-regular fa-gear-code"></i> crispy-bootstrap5==2024.2</li>
+    <li><i class="fa-sharp fa-regular fa-gear-code"></i> django==5.0.6</li>
+    <li><i class="fa-sharp fa-regular fa-gear-code"></i> django-allauth==0.63.1</li>
+    <li><i class="fa-sharp fa-regular fa-gear-code"></i> django-cleanup==8.1.0</li>
+    <li><i class="fa-sharp fa-regular fa-gear-code"></i> django-crispy-forms==2.1</li>
+    <li><i class="fa-sharp fa-regular fa-gear-code"></i> django-debug-toolbar==4.3.0</li>
+    <li><i class="fa-sharp fa-regular fa-gear-code"></i> django-extensions==3.2.3</li>
+    <li><i class="fa-sharp fa-regular fa-gear-code"></i> django-htmx==1.17.3</li>
+    <li><i class="fa-sharp fa-regular fa-gear-code"></i> djangorestframework==3.15.1</li>
+    <li><i class="fa-sharp fa-regular fa-gear-code"></i> django-taggit==5.0.1</li>
+    <li><i class="fa-sharp fa-regular fa-gear-code"></i> django-tinymce==4.0.0</li>
+    <li><i class="fa-sharp fa-regular fa-gear-code"></i> django-unfold==0.29.1</li>
+    <li><i class="fa-sharp fa-regular fa-gear-code"></i> environs[django]==11.0.0</li>
+    <li><i class="fa-sharp fa-regular fa-gear-code"></i> pillow==10.3.0</li>
+    <li><i class="fa-sharp fa-regular fa-gear-code"></i> psycopg2==2.9.9</li>
+    <li><i class="fa-sharp fa-regular fa-gear-code"></i> reportlab[pycairo]==4.0.9</li>
+    <li><i class="fa-sharp fa-regular fa-gear-code"></i> whitenoise==6.6.0</li>
+    <li><i class="fa-sharp fa-regular fa-gear-code"></i> xhtml2pdf==0.2.12</li>
+    <br>
+    <i class="fa-sharp fa-solid fa-asterisk"></i><i class="fa-sharp fa-solid fa-asterisk"></i> and dependent packages
+</ul>
+<h3>Development Packages</h3>
+<p>These packages are intended for development only and will not be deployed in production.</p>
+<ul class="list-unstyled">
+    <li><i class="fa-sharp fa-regular fa-gear-code"></i> black==24.3.0</li>
+    <li><i class="fa-sharp fa-regular fa-gear-code"></i> ruff==0.3.3</li>
+    <br>
+    <i class="fa-sharp fa-solid fa-asterisk"></i><i class="fa-sharp fa-solid fa-asterisk"></i> and dependent packages
+</ul>
+
+{% endblock content %}

@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% load widget_tweaks %}
+
+{% block title %}| New Ticket{% endblock title %}
+
+{% block scripts %}
+
+{% endblock scripts %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="card mx-auto" style="width: 40rem;">
+            <!-- <img src="..." class="card-img-top" alt="..."> -->
+            <div class="card-body">
+                <h5 class="card-title mb-3">Create Ticket</h5>
+                <p class="lead">Please be as detailed with your issue as you can. Once the ticket is submitted it will be assigned to an available engineer who will help you resolve the issue.</p>
+                <form action="" method="post">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="" class="form-label">Issue Title</label>
+                        {% render_field form.title class="form-control" %}
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label">Description</label>
+                        {% render_field form.description class="form-control" %}
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

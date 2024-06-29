@@ -1,0 +1,64 @@
+{% extends "base.html" %} 
+
+{% load static %} 
+{% block title %}| All Tickets{% endblock title %} 
+
+{% block scripts %} 
+
+{% endblock scripts %} 
+{% block content %}
+
+<h1>
+  All Tickets for {{ request.user.first_name|title }} {{ request.user.last_name|title }}
+</h1>
+<p class="lead">
+  Here you will find all your open tickets, with the current status and next
+  steps.
+</p>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Ticket Number</th>
+      <th scope="col">Title</th>
+      <th scope="col">Created On</th>
+      <th scope="col">Assigned To</th>
+      <th scope="col">Status</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for ticket in tickets %}
+    <tr>
+      <th scope="row"><small>{{ ticket.ticket_number }}</small></th>
+      <td><small>{{ ticket.title }}</small></td>
+      <td><small>{{ ticket.date_created }}</small></td>
+      {% if ticket.assigned_to %}
+        <td><small>{{ ticket.assigned_to|title }}</small></td>
+      {% else %}
+        <td><small>Not Assigned</small></td>
+      {% endif %}
+      {% if ticket.ticket_status == 'Active' %}
+      <td><span class="badge bg-success">{{ ticket.ticket_status }}</span></td>
+      {% elif ticket.ticket_status == 'Pending' %}
+      <td><span class="badge bg-warning">{{ ticket.ticket_status }}</span></td>
+      {% elif ticket.ticket_status == 'Completed' %}
+      <td><span class="badge bg-danger">{{ ticket.ticket_status }}</span></td>
+      {% endif %}
+      <td>
+        <small
+          ><a
+            href="{% url 'ticket-details' ticket.id %}"
+            class="badge bg-info text-decoration-none"
+            >View Details</a
+          ></small
+        >
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+<div class="mt-3">
+  <a href="{% url 'dashboard' %}" class="btn btn-primary btn-lg">Return to Dashboard</a>
+</div>
+
+{% endblock content %}
