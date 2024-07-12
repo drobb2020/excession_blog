@@ -2,6 +2,7 @@ import uuid
 
 from django.contrib.auth import get_user_model
 from django.db import models
+from tinymce import models as tinymce_models
 
 from a_profile.models import Profile
 
@@ -52,3 +53,21 @@ class Ticket(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Subscriber(models.Model):
+    name = models.CharField(max_length=100)
+    email = models.EmailField(unique=True)
+    date_joined = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.name} - {self.email}"
+
+
+class EmailTemplate(models.Model):
+    subject = models.CharField(max_length=255)
+    message = tinymce_models.HTMLField()
+    recipients = models.ManyToManyField(Subscriber)
+
+    def __str__(self):
+        return self.subject

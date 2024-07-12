@@ -1,14 +1,17 @@
 import datetime
 
+from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth import get_user_model
 from django.contrib.auth.decorators import login_required
+from django.core.mail import send_mail
 from django.shortcuts import redirect, render
+from django.template.loader import render_to_string
 from django.views.generic import TemplateView
 
 from a_profile.models import Profile
 
-from .forms import CreateTicketForm, ReviewForm, UpdateTicketForm
+from .forms import CreateTicketForm, ReviewForm, UpdateTicketForm, SubscribeForm
 from .models import Review, Ticket
 
 User = get_user_model()
@@ -216,3 +219,33 @@ def all_closed_tickets(request):
     tickets = Ticket.objects.filter(assigned_to=request.user, is_resolved=True)
     context = {"tickets": tickets}
     return render(request, "a_services/all_closed_tickets.html", context)
+
+
+# Newsletter Subscriptions
+@login_required
+def subscribe(request):
+    if request.method == "POST":
+        form = SubscribeForm(request.POST)
+        if form.is_valid():
+            subscriber = form.save()
+            context = {"email": subscriber.email, "name": subscriber.name}
+            email_content = render_to_string(
+                "a_services/subscription_thank_you.html", context
+            )
+            email_subject = "Thank You for Subscribing"
+            recipient_list = [subscriber.email]
+            from_email = settings.EMAIL_HOST_USER
+
+            send_mail(
+                email_subject,
+                " ",
+                from_email,
+                recipient_list,
+                html_message=email_content,
+                fail_silently=False,
+            )
+            return render(request, "a_services/thank_you.html")
+    else:
+        form = SubscribeForm()
+        context = {"form": form}
+        return render(request, "a_services/subscribe.html", context)

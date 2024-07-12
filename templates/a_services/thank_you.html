@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}| Thank You{% endblock title %}
+
+{% block content %}
+
+<div class="mx-auto flex flex-wrap" style="width: 40rem;">
+    <div class="p-5">
+        <h1 class="p-4 rounded bg-success text-center text-white">
+          Thank you for subscribing to our Newsletter
+        </h1>
+        <p class="p-4 bg-info rounded text-center text-white">
+          We're excited to have you onboard, stay tuned for some awesome news.
+        </p>
+    </div>
+    <div class="mx-auto flex flex-wrap" style="width: 40rem;">
+        <div class="p-3 text-center">
+            <a href="{% url 'posts' %}" class="btn btn-secondary btn-lg">Let's read some posts</a>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

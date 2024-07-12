@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.contrib import admin
 
-from .models import Ticket, Review
+from .models import Ticket, Review, Subscriber, EmailTemplate
 
 
 @admin.register(Review)
@@ -25,3 +25,21 @@ class TicketAdmin(admin.ModelAdmin):
     )
     list_filter = ('title', 'created_by', 'is_resolved')
     date_hierarchy = 'date_created'
+
+
+@admin.register(Subscriber)
+class SubscriberAdmin(admin.ModelAdmin):
+    list_display = (
+        'name',
+        'email'
+    )
+    list_filter = ('name', 'email')
+    date_hierarchy = 'date_joined'
+
+
+@admin.register(EmailTemplate)
+class EmailTemplateAdmin(admin.ModelAdmin):
+    list_display = (
+        'subject',
+    )
+    list_filter = ('subject', 'message')

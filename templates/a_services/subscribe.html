@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %}| newsletter{% endblock title %}
+
+{% block content %}
+
+<div class="container py-5">
+    <div class="row justify-content-md-center py-3">
+      <div class="col-md-8 py-3 mb-3">
+        <div class="text-center">
+            <img src="{% static 'images/email.png' %}" alt="Connect with Us" class="col-2 p-1 position-relative left-5 mx-lg-3 mx-md-3 mt-neg-14 rounded-3">
+        </div>
+        <h1>Subscribe to our monthly Newsletter</h1>
+        <form action="" method="post">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <button type="submit" class="btn btn-secondary btn-lg my-2"><i class="fa-regular fa-check me-2"></i> Sign Up</button>
+        </form>
+
+        <div class="mt-4">
+            <h2>Contacting us</h2>
+            <p>
+              If you have any questions, concerns, or complaints regarding this newsletter, we encourage you to contact us using the details below:
+            </p>
+            <p>
+              <a
+                class="text-decoration-none text-reset"
+                target="_blank"
+                rel="nofollow"
+                href="{% url 'contact' %}"
+                >https://blog.excessiondevelopment.tech/contact</a
+              >
+            </p>
+            <p>This document was last updated on July 7, 2024</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock content %}

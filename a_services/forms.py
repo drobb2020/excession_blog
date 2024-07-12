@@ -1,6 +1,6 @@
 from django import forms
 
-from .models import Review, Ticket
+from .models import Review, Ticket, Subscriber
 
 
 class ReviewForm(forms.ModelForm):
@@ -29,3 +29,9 @@ class UpdateTicketForm(forms.ModelForm):
             "description",
             "is_resolved",
         ]
+
+
+class SubscribeForm(forms.ModelForm):
+    class Meta:
+        model = Subscriber
+        fields = ['name', 'email']

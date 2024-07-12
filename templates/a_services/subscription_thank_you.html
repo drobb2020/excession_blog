@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/brands.min.css" integrity="sha512-DJLNx+VLY4aEiEQFjiawXaiceujj5GA7lIY8CHCIGQCBPfsEG0nGz1edb4Jvw1LR7q031zS5PpPqFuPA8ihlRA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Questrial&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Questrial&display=swap");
+
+      body {
+        background: #eeeeee;
+        font-family: "Open Sans", sans-serif;
+      }
+
+      .banner {
+        background: rgb(52, 92, 12);
+        color: white;
+      }
+
+      .banner,
+      .email-content {
+        padding: 2em 5em;
+        overflow: hidden;
+      }
+
+      h1 {
+        font-family: "Questrial", sans-serif;
+        font-size: 5em;
+        margin: 0 0 0.5em 0;
+      }
+
+      hr {
+        margin-top: 2em;
+        background: rgba(24, 122, 26, 0.594);
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      .sig {
+        font-family: "Dancing Script", cursive;
+        font-size: 3.5em;
+        margin: 0;
+      }
+
+      .email-container {
+        margin: 5% 2% 1% 2%;
+        background: #ffffff;
+      }
+
+      footer {
+        text-align: center;
+        margin: 0;
+        padding: 1em;
+      }
+
+      @media (max-width: 768px) {
+        .email-content {
+          padding: 1em;
+        }
+        h1 {
+          font-size: 1em;
+        }
+        .sig {
+          font-size: 2em;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="email-container">
+        <div class="email-body">
+          <div class="banner">
+            <h4>Subscription Successful</h4>
+            <h1>We fell <span>the love</span></h1>
+          </div>
+          <div class="email-content">
+            <p>Hi, {{ name }}</p>
+            <p>
+              Thank you for subscribing. We're so excited to share the latest
+              news and updates about our products with you. If you'd like to
+              learn more, follow us on social media.
+            </p>
+            <a href="https://www.facebook.com/david.robb.2012" target="_blank"
+              ><i class="fa-brands fa-square-facebook fa-xl"></i> Check us out on
+              Facebook</a
+            >
+            <a href="https://github.com/drobb2020" target="_blank"
+              ><i class="fa-brands fa-github fa-xl"></i> Check out other projects on Github</a
+            >
+            <hr />
+            <p>Sincerely,</p>
+            <p class="sig">David</p>
+            <p><em>David Robb</em><br />Founder, Excession Development</p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <p><a href="#">Unsubscribe</a></p>
+    </footer>
+  </body>
+</html>

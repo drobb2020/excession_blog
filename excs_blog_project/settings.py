@@ -37,6 +37,8 @@ else:
 
 ALLOWED_HOSTS = env.list('ALLOWED_HOSTS')
 
+SESSION_COOKIE_SECURE = env("SESSION_COOKIE")
+CSRF_COOKIE_SECURE = env("CSRF_COOKIE")
 
 # Application definition
 
@@ -127,7 +129,7 @@ else:
             'ENGINE': 'django.db.backends.postgresql',
             'NAME': env('DB_NAME'),
             'USER': env('DB_USER'),
-            'PASSWORD': env('DB_PASS'),
+            'PASSWORD': env('DB_PASSWORD'),
             'HOST': env('DB_HOST'),
             'PORT': env('DB_PORT'),
         }
