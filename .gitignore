@@ -2,7 +2,6 @@
 # Edit at https://www.toptal.com/developers/gitignore?templates=django,macos,visualstudiocode
 
 ### Django ###
-*.log
 *.pot
 *.pyc
 __pycache__/
