@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+from .logging import LOGGING
 
 from environs import Env
 
@@ -198,6 +199,10 @@ ACCOUNT_UNIQUE_EMAIL = True
 AUTHENTICATION_BACKENDS = [
     "django.contrib.auth.backends.ModelBackend",
     "allauth.account.auth_backends.AuthenticationBackend",
+]
+
+ADMINS = [
+    ('David Robb', 'drobb2011@gmail.com'),
 ]
 
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
