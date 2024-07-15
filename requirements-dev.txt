@@ -8,6 +8,12 @@ black==24.4.2
     # via -r requirements-dev.in
 click==8.1.7
     # via black
+factory-boy==3.3.0
+    # via -r requirements-dev.in
+faker==26.0.0
+    # via
+    #   -r requirements-dev.in
+    #   factory-boy
 mypy-extensions==1.0.0
     # via black
 packaging==24.0
@@ -16,5 +22,9 @@ pathspec==0.12.1
     # via black
 platformdirs==4.2.2
     # via black
+python-dateutil==2.9.0.post0
+    # via faker
 ruff==0.5.1
     # via -r requirements-dev.in
+six==1.16.0
+    # via python-dateutil

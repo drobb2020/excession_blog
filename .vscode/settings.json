@@ -12,6 +12,7 @@
     "apdisk",
     "asctime",
     "backcolor",
+    "bootcamp",
     "Bootswatch",
     "bullist",
     "casechange",
@@ -133,6 +134,7 @@
     "vsix",
     "webapps",
     "webassets",
+    "websockets",
     "WSGI",
     "ycheck"
   ]
