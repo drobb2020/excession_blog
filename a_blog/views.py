@@ -14,7 +14,7 @@ from .models import Post
 
 def post_list(request):
     posts = Post.objects.filter(
-        Q(status="published") | Q(status="updated")
+        Q(status="Published")
     )
     tags = Tag.objects.all()
     context = {"posts": posts, "tags": tags}

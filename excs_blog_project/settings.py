@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 from .logging import LOGGING
+from django.templatetags.static import static
 
 from environs import Env
 
@@ -45,6 +46,8 @@ CSRF_COOKIE_SECURE = env("CSRF_COOKIE")
 
 INSTALLED_APPS = [
     "unfold",
+    "unfold.contrib.import_export",
+    "unfold.contrib.filters",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -59,6 +62,8 @@ INSTALLED_APPS = [
     "crispy_forms",
     "debug_toolbar",
     "django_extensions",
+    "easyaudit",
+    "import_export",
     "rest_framework",
     "taggit",
     "tinymce",
@@ -86,6 +91,7 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "allauth.account.middleware.AccountMiddleware",
     "debug_toolbar.middleware.DebugToolbarMiddleware",
+    "easyaudit.middleware.easyaudit.EasyAuditMiddleware",
 ]
 
 INTERNAL_IPS = [ 
@@ -165,7 +171,7 @@ TIME_ZONE = "UTC"
 
 USE_I18N = True
 
-USE_TZ = True
+USE_TZ = False
 
 
 # Static files (CSS, JavaScript, Images)
@@ -203,6 +209,7 @@ AUTHENTICATION_BACKENDS = [
 
 ADMINS = [
     ('David Robb', 'drobb2011@gmail.com'),
+    ('Django Administrator', 'djangodmnstrtr@gmail.com'),
 ]
 
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
@@ -232,6 +239,6 @@ TAGGIT_CASE_INSENSITIVE = True
 
 UNFOLD = {
     "SITE_TITLE": "Excession Development Blog",
-    "SITE_HEADER": "Excession Blog",
+    "SITE_HEADER": "Excession Development Blog",
     "SITE_SYMBOL": "bookmark",
 }

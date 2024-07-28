@@ -14,12 +14,11 @@ def post_directory_path(instance, filename):
 
 
 class Post(models.Model):
-    OPTIONS = (
-        ("draft", "Draft"),
-        ("reviewed", "Reviewed"),
-        ("published", "Published"),
-        ("updated", "Updated"),
-    )
+    class PostStatus(models.TextChoices):
+        DRAFT = "Draft"
+        REVIEW = "Review"
+        PUBLISHED = "Published"
+
     title = models.CharField(max_length=250)
     subtitle = tinymce_models.HTMLField()
     slug = models.SlugField(max_length=250, unique=True)
@@ -29,7 +28,7 @@ class Post(models.Model):
     published_date = models.DateTimeField(default=timezone.now)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    status = models.CharField(max_length=10, choices=OPTIONS, default="draft")
+    status = models.CharField(max_length=10, choices=PostStatus.choices, default="draft")
     is_featured = models.BooleanField(default=False)
     tags = TaggableManager()
 
