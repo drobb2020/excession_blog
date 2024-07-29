@@ -90,6 +90,7 @@
     "permanentpen",
     "pipenv",
     "Pipfile",
+    "postsp",
     "psql",
     "psycopg",
     "publishings",

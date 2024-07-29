@@ -13,11 +13,11 @@ logger = logging.getLogger(__name__)
 
 def index(request):
     posts = Post.objects.all()
-    logger.debug("This is a debug message.")
-    logger.info("This is a info message.")
-    logger.warning("This is a warning message.")
-    logger.error("This is a error message.")
-    logger.critical("This is a critical message.")
+    # logger.debug("This is a debug message.")
+    # logger.info("This is a info message.")
+    # logger.warning("This is a warning message.")
+    # logger.error("This is a error message.")
+    # logger.critical("This is a critical message.")
 
     context = {"posts": posts}
     return render(request, "a_core/index.html", context)

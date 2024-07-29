@@ -13,9 +13,7 @@ from .models import Post
 
 
 def post_list(request):
-    posts = Post.objects.filter(
-        Q(status="Published")
-    )
+    posts = Post.objects.filter(Q(status="Published"))
     tags = Tag.objects.all()
     context = {"posts": posts, "tags": tags}
     return render(request, "a_blog/post_list.html", context)

@@ -2983,3 +2983,169 @@ INFO 2024-07-28 21:38:30,990 django.server basehttp.py (line 212) log_message. "
 INFO 2024-07-28 21:38:31,021 django.server basehttp.py (line 212) log_message. "GET /admin/jsi18n/ HTTP/1.1" 200 3342
 INFO 2024-07-28 21:39:01,327 django.server basehttp.py (line 212) log_message. "GET /admin/a_blog/post/? HTTP/1.1" 200 254002
 INFO 2024-07-28 21:39:01,385 django.server basehttp.py (line 212) log_message. "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2024-07-28 23:51:52,956 django.utils.autoreload autoreload.py (line 668) run_with_reloader. Watching for file changes with StatReloader
+INFO 2024-07-28 23:52:02,779 django.server basehttp.py (line 212) log_message. "GET / HTTP/1.1" 200 27471
+INFO 2024-07-28 23:52:02,794 django.server basehttp.py (line 212) log_message. "GET /static/css/base.css HTTP/1.1" 200 547
+INFO 2024-07-28 23:52:02,796 django.server basehttp.py (line 212) log_message. "GET /static/js/base.js HTTP/1.1" 200 63
+INFO 2024-07-28 23:52:02,798 django.server basehttp.py (line 212) log_message. "GET /static/images/landing1.jpg HTTP/1.1" 200 316069
+INFO 2024-07-28 23:52:02,808 django.server basehttp.py (line 212) log_message. "GET /media/posts/default.jpg HTTP/1.1" 200 79969
+INFO 2024-07-28 23:52:02,814 django.server basehttp.py (line 212) log_message. "GET /static/images/logo.png HTTP/1.1" 200 55704
+INFO 2024-07-28 23:52:26,832 django.server basehttp.py (line 212) log_message. "GET /admin/ HTTP/1.1" 200 77117
+INFO 2024-07-28 23:52:30,029 django.server basehttp.py (line 212) log_message. "GET /admin/ HTTP/1.1" 200 77117
+INFO 2024-07-28 23:55:25,012 django.utils.autoreload autoreload.py (line 266) trigger_reload. /Users/davidrobb/Projects/David_Robb/excession_blog/excs_blog_project/settings.py changed, reloading.
+INFO 2024-07-28 23:55:25,516 django.utils.autoreload autoreload.py (line 668) run_with_reloader. Watching for file changes with StatReloader
+INFO 2024-07-28 23:55:30,217 django.utils.autoreload autoreload.py (line 266) trigger_reload. /Users/davidrobb/Projects/David_Robb/excession_blog/excs_blog_project/settings.py changed, reloading.
+INFO 2024-07-28 23:55:37,590 django.utils.autoreload autoreload.py (line 668) run_with_reloader. Watching for file changes with StatReloader
+INFO 2024-07-28 23:57:09,820 django.utils.autoreload autoreload.py (line 266) trigger_reload. /Users/davidrobb/Projects/David_Robb/excession_blog/a_blog/views.py changed, reloading.
+INFO 2024-07-28 23:57:10,326 django.utils.autoreload autoreload.py (line 668) run_with_reloader. Watching for file changes with StatReloader
+INFO 2024-07-28 23:57:11,897 django.utils.autoreload autoreload.py (line 266) trigger_reload. /Users/davidrobb/Projects/David_Robb/excession_blog/a_blog/views.py changed, reloading.
+INFO 2024-07-28 23:57:12,269 django.utils.autoreload autoreload.py (line 668) run_with_reloader. Watching for file changes with StatReloader
+INFO 2024-07-28 23:57:55,860 django.utils.autoreload autoreload.py (line 266) trigger_reload. /Users/davidrobb/Projects/David_Robb/excession_blog/a_blog/views.py changed, reloading.
+INFO 2024-07-28 23:57:56,379 django.utils.autoreload autoreload.py (line 668) run_with_reloader. Watching for file changes with StatReloader
+INFO 2024-07-28 23:58:01,601 django.utils.autoreload autoreload.py (line 266) trigger_reload. /Users/davidrobb/Projects/David_Robb/excession_blog/a_blog/views.py changed, reloading.
+INFO 2024-07-28 23:58:01,914 django.utils.autoreload autoreload.py (line 668) run_with_reloader. Watching for file changes with StatReloader
+INFO 2024-07-28 23:58:05,062 django.utils.autoreload autoreload.py (line 266) trigger_reload. /Users/davidrobb/Projects/David_Robb/excession_blog/a_blog/views.py changed, reloading.
+INFO 2024-07-28 23:58:05,378 django.utils.autoreload autoreload.py (line 668) run_with_reloader. Watching for file changes with StatReloader
+INFO 2024-07-28 23:58:06,954 django.utils.autoreload autoreload.py (line 266) trigger_reload. /Users/davidrobb/Projects/David_Robb/excession_blog/a_blog/views.py changed, reloading.
+INFO 2024-07-28 23:58:07,414 django.utils.autoreload autoreload.py (line 668) run_with_reloader. Watching for file changes with StatReloader
+INFO 2024-07-28 23:58:16,151 django.utils.autoreload autoreload.py (line 266) trigger_reload. /Users/davidrobb/Projects/David_Robb/excession_blog/a_blog/views.py changed, reloading.
+INFO 2024-07-28 23:58:16,539 django.utils.autoreload autoreload.py (line 668) run_with_reloader. Watching for file changes with StatReloader
+INFO 2024-07-28 23:58:19,057 django.utils.autoreload autoreload.py (line 266) trigger_reload. /Users/davidrobb/Projects/David_Robb/excession_blog/a_blog/views.py changed, reloading.
+INFO 2024-07-28 23:58:19,424 django.utils.autoreload autoreload.py (line 668) run_with_reloader. Watching for file changes with StatReloader
+INFO 2024-07-28 23:58:36,661 django.utils.autoreload autoreload.py (line 266) trigger_reload. /Users/davidrobb/Projects/David_Robb/excession_blog/a_blog/views.py changed, reloading.
+INFO 2024-07-28 23:58:37,165 django.utils.autoreload autoreload.py (line 668) run_with_reloader. Watching for file changes with StatReloader
+INFO 2024-07-28 23:58:40,814 django.utils.autoreload autoreload.py (line 266) trigger_reload. /Users/davidrobb/Projects/David_Robb/excession_blog/a_blog/views.py changed, reloading.
+INFO 2024-07-28 23:58:41,196 django.utils.autoreload autoreload.py (line 668) run_with_reloader. Watching for file changes with StatReloader
+INFO 2024-07-28 23:58:55,228 django.utils.autoreload autoreload.py (line 266) trigger_reload. /Users/davidrobb/Projects/David_Robb/excession_blog/a_blog/views.py changed, reloading.
+INFO 2024-07-28 23:58:55,579 django.utils.autoreload autoreload.py (line 668) run_with_reloader. Watching for file changes with StatReloader
+INFO 2024-07-28 23:58:59,148 django.utils.autoreload autoreload.py (line 266) trigger_reload. /Users/davidrobb/Projects/David_Robb/excession_blog/a_blog/views.py changed, reloading.
+INFO 2024-07-28 23:58:59,564 django.utils.autoreload autoreload.py (line 668) run_with_reloader. Watching for file changes with StatReloader
+INFO 2024-07-28 23:59:06,220 django.utils.autoreload autoreload.py (line 266) trigger_reload. /Users/davidrobb/Projects/David_Robb/excession_blog/a_blog/views.py changed, reloading.
+INFO 2024-07-28 23:59:06,587 django.utils.autoreload autoreload.py (line 668) run_with_reloader. Watching for file changes with StatReloader
+INFO 2024-07-28 23:59:13,242 django.utils.autoreload autoreload.py (line 266) trigger_reload. /Users/davidrobb/Projects/David_Robb/excession_blog/a_blog/views.py changed, reloading.
+INFO 2024-07-28 23:59:13,609 django.utils.autoreload autoreload.py (line 668) run_with_reloader. Watching for file changes with StatReloader
+INFO 2024-07-28 23:59:18,177 django.utils.autoreload autoreload.py (line 266) trigger_reload. /Users/davidrobb/Projects/David_Robb/excession_blog/a_blog/views.py changed, reloading.
+INFO 2024-07-28 23:59:18,537 django.utils.autoreload autoreload.py (line 668) run_with_reloader. Watching for file changes with StatReloader
+INFO 2024-07-28 23:59:50,514 django.utils.autoreload autoreload.py (line 266) trigger_reload. /Users/davidrobb/Projects/David_Robb/excession_blog/a_blog/views.py changed, reloading.
+INFO 2024-07-28 23:59:50,939 django.utils.autoreload autoreload.py (line 668) run_with_reloader. Watching for file changes with StatReloader
+INFO 2024-07-29 00:00:25,057 django.utils.autoreload autoreload.py (line 266) trigger_reload. /Users/davidrobb/Projects/David_Robb/excession_blog/a_blog/views.py changed, reloading.
+INFO 2024-07-29 00:00:25,458 django.utils.autoreload autoreload.py (line 668) run_with_reloader. Watching for file changes with StatReloader
+INFO 2024-07-29 00:00:26,909 django.utils.autoreload autoreload.py (line 266) trigger_reload. /Users/davidrobb/Projects/David_Robb/excession_blog/a_blog/views.py changed, reloading.
+INFO 2024-07-29 00:00:27,299 django.utils.autoreload autoreload.py (line 668) run_with_reloader. Watching for file changes with StatReloader
+INFO 2024-07-29 00:00:28,775 django.utils.autoreload autoreload.py (line 266) trigger_reload. /Users/davidrobb/Projects/David_Robb/excession_blog/a_blog/views.py changed, reloading.
+INFO 2024-07-29 00:00:29,190 django.utils.autoreload autoreload.py (line 668) run_with_reloader. Watching for file changes with StatReloader
+INFO 2024-07-29 00:00:35,511 django.utils.autoreload autoreload.py (line 266) trigger_reload. /Users/davidrobb/Projects/David_Robb/excession_blog/a_blog/views.py changed, reloading.
+INFO 2024-07-29 00:00:35,836 django.utils.autoreload autoreload.py (line 668) run_with_reloader. Watching for file changes with StatReloader
+INFO 2024-07-29 00:00:41,494 django.utils.autoreload autoreload.py (line 266) trigger_reload. /Users/davidrobb/Projects/David_Robb/excession_blog/a_blog/views.py changed, reloading.
+INFO 2024-07-29 00:00:41,862 django.utils.autoreload autoreload.py (line 668) run_with_reloader. Watching for file changes with StatReloader
+INFO 2024-07-29 00:02:05,697 django.utils.autoreload autoreload.py (line 266) trigger_reload. /Users/davidrobb/Projects/David_Robb/excession_blog/a_blog/views.py changed, reloading.
+INFO 2024-07-29 00:02:06,188 django.utils.autoreload autoreload.py (line 668) run_with_reloader. Watching for file changes with StatReloader
+INFO 2024-07-29 00:02:26,679 django.utils.autoreload autoreload.py (line 266) trigger_reload. /Users/davidrobb/Projects/David_Robb/excession_blog/a_blog/views.py changed, reloading.
+INFO 2024-07-29 00:02:27,050 django.utils.autoreload autoreload.py (line 668) run_with_reloader. Watching for file changes with StatReloader
+INFO 2024-07-29 00:02:29,199 django.utils.autoreload autoreload.py (line 266) trigger_reload. /Users/davidrobb/Projects/David_Robb/excession_blog/a_blog/views.py changed, reloading.
+INFO 2024-07-29 00:02:29,504 django.utils.autoreload autoreload.py (line 668) run_with_reloader. Watching for file changes with StatReloader
+INFO 2024-07-29 00:02:31,653 django.utils.autoreload autoreload.py (line 266) trigger_reload. /Users/davidrobb/Projects/David_Robb/excession_blog/a_blog/views.py changed, reloading.
+INFO 2024-07-29 00:02:31,970 django.utils.autoreload autoreload.py (line 668) run_with_reloader. Watching for file changes with StatReloader
+INFO 2024-07-29 00:02:35,109 django.utils.autoreload autoreload.py (line 266) trigger_reload. /Users/davidrobb/Projects/David_Robb/excession_blog/a_blog/views.py changed, reloading.
+INFO 2024-07-29 00:02:35,440 django.utils.autoreload autoreload.py (line 668) run_with_reloader. Watching for file changes with StatReloader
+INFO 2024-07-29 00:02:38,642 django.utils.autoreload autoreload.py (line 266) trigger_reload. /Users/davidrobb/Projects/David_Robb/excession_blog/a_blog/views.py changed, reloading.
+INFO 2024-07-29 00:02:38,962 django.utils.autoreload autoreload.py (line 668) run_with_reloader. Watching for file changes with StatReloader
+INFO 2024-07-29 00:02:41,124 django.utils.autoreload autoreload.py (line 266) trigger_reload. /Users/davidrobb/Projects/David_Robb/excession_blog/a_blog/views.py changed, reloading.
+INFO 2024-07-29 00:02:41,453 django.utils.autoreload autoreload.py (line 668) run_with_reloader. Watching for file changes with StatReloader
+INFO 2024-07-29 00:02:45,639 django.utils.autoreload autoreload.py (line 266) trigger_reload. /Users/davidrobb/Projects/David_Robb/excession_blog/a_blog/views.py changed, reloading.
+INFO 2024-07-29 00:02:45,943 django.utils.autoreload autoreload.py (line 668) run_with_reloader. Watching for file changes with StatReloader
+ERROR 2024-07-29 00:05:23,861 django.request log.py (line 241) log_response. Internal Server Error: /posts/
+Traceback (most recent call last):
+  File "/Users/davidrobb/Projects/David_Robb/excession_blog/venv/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/davidrobb/Projects/David_Robb/excession_blog/venv/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/davidrobb/Projects/David_Robb/excession_blog/a_blog/views.py", line 19, in post_list
+    paginator = Paginator(posts.qs, settings.PAGE_SIZE)
+                          ^^^^^^^^
+AttributeError: 'QuerySet' object has no attribute 'qs'
+ERROR 2024-07-29 00:05:23,892 django.server basehttp.py (line 212) log_message. "GET /posts/ HTTP/1.1" 500 104193
+INFO 2024-07-29 00:08:48,526 django.utils.autoreload autoreload.py (line 266) trigger_reload. /Users/davidrobb/Projects/David_Robb/excession_blog/a_blog/views.py changed, reloading.
+INFO 2024-07-29 00:08:49,061 django.utils.autoreload autoreload.py (line 668) run_with_reloader. Watching for file changes with StatReloader
+INFO 2024-07-29 00:08:57,947 django.utils.autoreload autoreload.py (line 266) trigger_reload. /Users/davidrobb/Projects/David_Robb/excession_blog/a_blog/views.py changed, reloading.
+INFO 2024-07-29 00:08:58,329 django.utils.autoreload autoreload.py (line 668) run_with_reloader. Watching for file changes with StatReloader
+INFO 2024-07-29 00:09:57,257 django.server basehttp.py (line 212) log_message. "GET /posts/ HTTP/1.1" 200 24042
+INFO 2024-07-29 00:10:00,856 django.server basehttp.py (line 212) log_message. "GET /posts/ HTTP/1.1" 200 24040
+INFO 2024-07-29 00:10:03,579 django.server basehttp.py (line 212) log_message. "GET / HTTP/1.1" 200 27469
+INFO 2024-07-29 00:10:04,728 django.server basehttp.py (line 212) log_message. "GET /posts/ HTTP/1.1" 200 24040
+INFO 2024-07-29 00:10:11,482 django.server basehttp.py (line 212) log_message. "GET /admin/a_blog/post/ HTTP/1.1" 200 254002
+INFO 2024-07-29 00:10:11,516 django.server basehttp.py (line 212) log_message. "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2024-07-29 00:10:41,348 django.server basehttp.py (line 212) log_message. "GET /posts/ HTTP/1.1" 200 95030
+INFO 2024-07-29 00:10:54,321 django.server basehttp.py (line 212) log_message. "GET /posts/tag/testing/ HTTP/1.1" 200 39594
+INFO 2024-07-29 00:10:56,411 django.server basehttp.py (line 212) log_message. "GET /posts/ HTTP/1.1" 200 95030
+INFO 2024-07-29 00:11:27,394 django.server basehttp.py (line 212) log_message. "GET /admin/a_blog/post/ HTTP/1.1" 200 254002
+INFO 2024-07-29 00:11:27,423 django.server basehttp.py (line 212) log_message. "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2024-07-29 00:11:32,051 django.server basehttp.py (line 212) log_message. "GET / HTTP/1.1" 200 27469
+INFO 2024-07-29 00:11:32,916 django.server basehttp.py (line 212) log_message. "GET /admin/ HTTP/1.1" 200 77117
+INFO 2024-07-29 00:11:35,282 django.server basehttp.py (line 212) log_message. "GET / HTTP/1.1" 200 27469
+INFO 2024-07-29 00:11:36,777 django.server basehttp.py (line 212) log_message. "GET /admin/ HTTP/1.1" 200 77117
+INFO 2024-07-29 19:58:20,286 django.utils.autoreload autoreload.py (line 668) run_with_reloader. Watching for file changes with StatReloader
+INFO 2024-07-29 19:58:28,308 django.server basehttp.py (line 212) log_message. "GET / HTTP/1.1" 200 27471
+INFO 2024-07-29 19:58:28,322 django.server basehttp.py (line 212) log_message. "GET /static/js/base.js HTTP/1.1" 200 63
+INFO 2024-07-29 19:58:28,322 django.server basehttp.py (line 212) log_message. "GET /static/css/base.css HTTP/1.1" 200 547
+INFO 2024-07-29 19:58:28,324 django.server basehttp.py (line 212) log_message. "GET /static/debug_toolbar/js/toolbar.js HTTP/1.1" 200 14601
+INFO 2024-07-29 19:58:28,327 django.server basehttp.py (line 212) log_message. "GET /static/images/landing1.jpg HTTP/1.1" 200 316069
+INFO 2024-07-29 19:58:28,337 django.server basehttp.py (line 212) log_message. "GET /media/posts/default.jpg HTTP/1.1" 200 79969
+INFO 2024-07-29 19:58:28,342 django.server basehttp.py (line 212) log_message. "GET /static/images/logo.png HTTP/1.1" 200 55704
+INFO 2024-07-29 19:58:28,417 django.server basehttp.py (line 212) log_message. "GET /static/debug_toolbar/css/toolbar.css HTTP/1.1" 200 16675
+INFO 2024-07-29 19:58:28,566 django.server basehttp.py (line 212) log_message. "GET /static/debug_toolbar/css/print.css HTTP/1.1" 200 43
+INFO 2024-07-29 19:58:28,602 django.server basehttp.py (line 212) log_message. "GET /static/debug_toolbar/js/utils.js HTTP/1.1" 200 4742
+INFO 2024-07-29 19:58:28,818 django.server basehttp.py (line 212) log_message. "GET /static/assets/favicon.ico HTTP/1.1" 200 67646
+INFO 2024-07-29 20:04:13,898 django.utils.autoreload autoreload.py (line 266) trigger_reload. /Users/davidrobb/Projects/David_Robb/excession_blog/a_blog/views.py changed, reloading.
+INFO 2024-07-29 20:04:14,401 django.utils.autoreload autoreload.py (line 668) run_with_reloader. Watching for file changes with StatReloader
+INFO 2024-07-29 20:04:20,144 django.utils.autoreload autoreload.py (line 266) trigger_reload. /Users/davidrobb/Projects/David_Robb/excession_blog/a_blog/views.py changed, reloading.
+INFO 2024-07-29 20:04:20,554 django.utils.autoreload autoreload.py (line 668) run_with_reloader. Watching for file changes with StatReloader
+INFO 2024-07-29 20:04:22,055 django.utils.autoreload autoreload.py (line 266) trigger_reload. /Users/davidrobb/Projects/David_Robb/excession_blog/a_blog/views.py changed, reloading.
+INFO 2024-07-29 20:04:22,414 django.utils.autoreload autoreload.py (line 668) run_with_reloader. Watching for file changes with StatReloader
+INFO 2024-07-29 20:04:29,040 django.utils.autoreload autoreload.py (line 266) trigger_reload. /Users/davidrobb/Projects/David_Robb/excession_blog/a_blog/views.py changed, reloading.
+INFO 2024-07-29 20:04:29,445 django.utils.autoreload autoreload.py (line 668) run_with_reloader. Watching for file changes with StatReloader
+INFO 2024-07-29 20:04:30,530 django.utils.autoreload autoreload.py (line 266) trigger_reload. /Users/davidrobb/Projects/David_Robb/excession_blog/a_blog/views.py changed, reloading.
+INFO 2024-07-29 20:04:30,841 django.utils.autoreload autoreload.py (line 668) run_with_reloader. Watching for file changes with StatReloader
+INFO 2024-07-29 20:04:34,393 django.utils.autoreload autoreload.py (line 266) trigger_reload. /Users/davidrobb/Projects/David_Robb/excession_blog/a_blog/views.py changed, reloading.
+INFO 2024-07-29 20:04:34,756 django.utils.autoreload autoreload.py (line 668) run_with_reloader. Watching for file changes with StatReloader
+INFO 2024-07-29 20:04:54,204 django.utils.autoreload autoreload.py (line 266) trigger_reload. /Users/davidrobb/Projects/David_Robb/excession_blog/a_blog/views.py changed, reloading.
+INFO 2024-07-29 20:04:54,596 django.utils.autoreload autoreload.py (line 668) run_with_reloader. Watching for file changes with StatReloader
+INFO 2024-07-29 20:11:12,813 django.utils.autoreload autoreload.py (line 266) trigger_reload. /Users/davidrobb/Projects/David_Robb/excession_blog/a_blog/views.py changed, reloading.
+INFO 2024-07-29 20:11:13,289 django.utils.autoreload autoreload.py (line 668) run_with_reloader. Watching for file changes with StatReloader
+INFO 2024-07-29 20:11:16,906 django.utils.autoreload autoreload.py (line 266) trigger_reload. /Users/davidrobb/Projects/David_Robb/excession_blog/a_blog/views.py changed, reloading.
+INFO 2024-07-29 20:11:17,275 django.utils.autoreload autoreload.py (line 668) run_with_reloader. Watching for file changes with StatReloader
+INFO 2024-07-29 20:11:21,521 django.utils.autoreload autoreload.py (line 266) trigger_reload. /Users/davidrobb/Projects/David_Robb/excession_blog/a_blog/views.py changed, reloading.
+INFO 2024-07-29 20:11:21,848 django.utils.autoreload autoreload.py (line 668) run_with_reloader. Watching for file changes with StatReloader
+INFO 2024-07-29 20:11:27,529 django.utils.autoreload autoreload.py (line 266) trigger_reload. /Users/davidrobb/Projects/David_Robb/excession_blog/a_blog/views.py changed, reloading.
+INFO 2024-07-29 20:11:27,913 django.utils.autoreload autoreload.py (line 668) run_with_reloader. Watching for file changes with StatReloader
+INFO 2024-07-29 20:11:36,708 django.utils.autoreload autoreload.py (line 266) trigger_reload. /Users/davidrobb/Projects/David_Robb/excession_blog/a_blog/views.py changed, reloading.
+INFO 2024-07-29 20:11:37,107 django.utils.autoreload autoreload.py (line 668) run_with_reloader. Watching for file changes with StatReloader
+INFO 2024-07-29 20:11:38,200 django.utils.autoreload autoreload.py (line 266) trigger_reload. /Users/davidrobb/Projects/David_Robb/excession_blog/a_blog/views.py changed, reloading.
+INFO 2024-07-29 20:11:38,505 django.utils.autoreload autoreload.py (line 668) run_with_reloader. Watching for file changes with StatReloader
+INFO 2024-07-29 20:11:42,688 django.utils.autoreload autoreload.py (line 266) trigger_reload. /Users/davidrobb/Projects/David_Robb/excession_blog/a_blog/views.py changed, reloading.
+INFO 2024-07-29 20:11:42,996 django.utils.autoreload autoreload.py (line 668) run_with_reloader. Watching for file changes with StatReloader
+INFO 2024-07-29 20:12:44,424 django.server basehttp.py (line 212) log_message. "GET /posts/ HTTP/1.1" 200 33342
+INFO 2024-07-29 20:20:36,564 django.utils.autoreload autoreload.py (line 266) trigger_reload. /Users/davidrobb/Projects/David_Robb/excession_blog/a_blog/views.py changed, reloading.
+INFO 2024-07-29 20:20:37,050 django.utils.autoreload autoreload.py (line 668) run_with_reloader. Watching for file changes with StatReloader
+INFO 2024-07-29 20:20:46,794 django.utils.autoreload autoreload.py (line 266) trigger_reload. /Users/davidrobb/Projects/David_Robb/excession_blog/a_blog/views.py changed, reloading.
+INFO 2024-07-29 20:20:47,177 django.utils.autoreload autoreload.py (line 668) run_with_reloader. Watching for file changes with StatReloader
+INFO 2024-07-29 20:20:54,975 django.utils.autoreload autoreload.py (line 266) trigger_reload. /Users/davidrobb/Projects/David_Robb/excession_blog/a_blog/views.py changed, reloading.
+INFO 2024-07-29 20:20:55,378 django.utils.autoreload autoreload.py (line 668) run_with_reloader. Watching for file changes with StatReloader
+INFO 2024-07-29 20:21:04,973 django.server basehttp.py (line 212) log_message. "GET /posts/ HTTP/1.1" 200 95030
+INFO 2024-07-29 20:21:47,425 django.utils.autoreload autoreload.py (line 266) trigger_reload. /Users/davidrobb/Projects/David_Robb/excession_blog/excs_blog_project/settings.py changed, reloading.
+INFO 2024-07-29 20:21:47,802 django.utils.autoreload autoreload.py (line 668) run_with_reloader. Watching for file changes with StatReloader
+INFO 2024-07-29 20:24:53,989 django.utils.autoreload autoreload.py (line 266) trigger_reload. /Users/davidrobb/Projects/David_Robb/excession_blog/a_core/views.py changed, reloading.
+INFO 2024-07-29 20:24:54,378 django.utils.autoreload autoreload.py (line 668) run_with_reloader. Watching for file changes with StatReloader
+INFO 2024-07-29 20:24:55,863 django.utils.autoreload autoreload.py (line 266) trigger_reload. /Users/davidrobb/Projects/David_Robb/excession_blog/a_core/views.py changed, reloading.
+INFO 2024-07-29 20:24:56,223 django.utils.autoreload autoreload.py (line 668) run_with_reloader. Watching for file changes with StatReloader
+INFO 2024-07-29 20:24:57,703 django.utils.autoreload autoreload.py (line 266) trigger_reload. /Users/davidrobb/Projects/David_Robb/excession_blog/a_core/views.py changed, reloading.
+INFO 2024-07-29 20:24:58,056 django.utils.autoreload autoreload.py (line 668) run_with_reloader. Watching for file changes with StatReloader
+INFO 2024-07-29 20:24:59,545 django.utils.autoreload autoreload.py (line 266) trigger_reload. /Users/davidrobb/Projects/David_Robb/excession_blog/a_core/views.py changed, reloading.
+INFO 2024-07-29 20:24:59,913 django.utils.autoreload autoreload.py (line 668) run_with_reloader. Watching for file changes with StatReloader
+INFO 2024-07-29 20:25:01,404 django.utils.autoreload autoreload.py (line 266) trigger_reload. /Users/davidrobb/Projects/David_Robb/excession_blog/a_core/views.py changed, reloading.
+INFO 2024-07-29 20:25:01,765 django.utils.autoreload autoreload.py (line 668) run_with_reloader. Watching for file changes with StatReloader
+INFO 2024-07-29 20:25:10,766 django.server basehttp.py (line 212) log_message. "GET / HTTP/1.1" 200 27471
+INFO 2024-07-29 20:25:15,049 django.server basehttp.py (line 212) log_message. "GET /posts/ HTTP/1.1" 200 95030
+INFO 2024-07-29 20:25:29,952 django.server basehttp.py (line 212) log_message. "GET /posts/ HTTP/1.1" 200 95030
