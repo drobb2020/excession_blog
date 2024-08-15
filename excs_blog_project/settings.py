@@ -62,7 +62,6 @@ INSTALLED_APPS = [
     "crispy_forms",
     "debug_toolbar",
     "django_extensions",
-    "easyaudit",
     "import_export",
     "rest_framework",
     "taggit",
@@ -91,7 +90,6 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "allauth.account.middleware.AccountMiddleware",
     "debug_toolbar.middleware.DebugToolbarMiddleware",
-    "easyaudit.middleware.easyaudit.EasyAuditMiddleware",
 ]
 
 INTERNAL_IPS = [ 
@@ -223,7 +221,7 @@ ACCOUNT_EMAIL_SUBJECT_PREFIX = ''
 
 TINYMCE_DEFAULT_CONFIG = {
     "height": "320px",
-    "width": "1260px",
+    "width": "1050px",
     "menubar": "file edit view insert format tools table help",
     "plugins": "advlist autolink lists link image charmap print preview anchor searchreplace visualblocks code "
     "fullscreen insertdatetime media table paste code help wordcount spellchecker",

@@ -65,6 +65,7 @@ class TermsOfUseView(TemplateView):
     template_name = "a_services/terms_of_use.html"
 
 
+@login_required
 def dashboard(request):
     pending_tickets = Ticket.objects.filter(
         created_by=request.user, ticket_status="Pending"

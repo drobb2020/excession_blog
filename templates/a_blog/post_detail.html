@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% load static %}
+{% load crispy_forms_tags %}
 
 {% block title %}| {{ post.slug }}{% endblock title %}
 
@@ -8,7 +9,7 @@
 
 <div class="container">
   <div class="row justify-content-md-center py-3">
-    <div class="card col-md-8 mb-3 shadow">
+    <div class="card col-md-10 mb-3 shadow">
       <img
         src="{{ post.post_image.url }}"
         class="card-img-top mt-3"
@@ -45,12 +46,44 @@
       </div>
     </div>
     <!-- Generate PDF button -->
-    <div class="col-md-8">
-      <a href="{% url 'posts' %}" class="btn btn-secondary"><i class="fa-regular fa-arrow-left"></i> All Posts</a>
-      <a href="{% url 'generate-pdf' post.slug %}" class="btn btn-secondary"><i class="fa-regular fa-file-pdf"></i> Generate PDF</a>
+    <div class="col-md-10">
+      <a href="{% url 'posts' %}" class="btn btn-secondary my-2"><i class="fa-regular fa-arrow-left"></i> All Posts</a>
+      <a href="{% url 'generate-pdf' post.slug %}" class="btn btn-secondary my-2"><i class="fa-regular fa-file-pdf"></i> Generate PDF</a>
       {% if user == post.author %}
       <a href="{% url 'post-update' post.slug %}" class="btn btn-secondary my-2"><i class="fa-regular fa-pen-to-square"></i> Update Post</a>
       <a href="{% url 'post-delete' post.slug %}" class="btn btn-danger my-2"><i class="fa-regular fa-trash"></i> Delete Post</a>
+      {% endif %}
+    </div>
+    <!-- Comment form & comments for this post -->
+     <hr class="mt-4" />
+    <div class="col-md-10">
+      <h2>Add a comment about this post</h2>
+      <form action="." method="post">
+        {% csrf_token %}
+        {{ form.media }}
+        {{ form|crispy }}
+        <button type="submit" class="btn btn-secondary btn-lg my-2"><i class="fa-regular fa-check"></i> Comment</button>
+      </form>
+    </div>
+    <hr class="mt-4" />
+    <div class="col-md-10">
+      <h2>Comments</h2>
+      {% if comments %}
+        {% for comment in comments %}
+        <div class="card mb-2">
+          <div class="card-header text-white">
+            Commented On {{ comment.created_at }}
+          </div>
+          <div class="card-body">
+            <blockquote class="blockquote mb-0">
+              <p class="lead text-white">{{ comment.content|safe }}</p>
+              <footer class="blockquote-footer">Comment made by <cite title="Source Title">{{ comment.name|title }} ({{ comment.email }})</cite></footer>
+            </blockquote>
+          </div>
+        </div>
+        {% endfor %}
+      {% else %}
+        <p class="lead text-white">No comments have been made about this post. Be the first to leave a comment</p>
       {% endif %}
     </div>
   </div>

@@ -10,6 +10,7 @@ from .forms import EmailForm, ProfileForm
 User = get_user_model()
 
 
+@login_required
 def profile_view(request, username=None):
     if username:
         profile = get_object_or_404(User, username=username).profile
@@ -47,7 +48,6 @@ def profile_settings_view(request):
 
 @login_required
 def profile_emailchange(request):
-
     if request.htmx:
         form = EmailForm(instance=request.user)
         return render(request, "partials/email_form.html", {"form": form})

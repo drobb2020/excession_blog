@@ -8,8 +8,8 @@ from django.views.generic import ListView
 from taggit.models import Tag
 from xhtml2pdf import pisa
 
-from .forms import PostCreateForm, PostStatusForm, PostUpdateForm
-from .models import Post
+from .forms import CommentForm, PostCreateForm, PostStatusForm, PostUpdateForm
+from .models import Comment, Post
 
 
 def post_list(request):
@@ -39,7 +39,16 @@ class TagListView(ListView):
 
 def post_detail(request, post):
     post = get_object_or_404(Post, slug=post)
-    context = {"post": post}
+    comments = Comment.objects.filter(post=post)
+    if request.method == "POST":
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.post = post
+            comment.save()
+    else:
+        form = CommentForm()
+    context = {"post": post, "comments": comments, "form": form}
     return render(request, "a_blog/post_detail.html", context)
 
 

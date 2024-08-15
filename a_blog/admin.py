@@ -4,7 +4,21 @@ from unfold.admin import ModelAdmin
 from unfold.contrib.import_export.forms import ExportForm, ImportForm
 from unfold.contrib.filters.admin import RangeDateFilter
 
-from .models import Post
+from .models import Comment, Post
+
+
+@admin.register(Comment)
+class CommentAdmin(ModelAdmin):
+    list_display = (
+        'post',
+        'name',
+        'email',
+        'created_at',
+        'status',
+    )
+    list_filter = ('post', 'created_at', 'updated_at', 'status')
+    search_fields = ('name',)
+    date_hierarchy = 'created_at'
 
 
 @admin.register(Post)
