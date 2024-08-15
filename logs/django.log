@@ -4319,3 +4319,10 @@ INFO 2024-08-15 16:00:32,844 django.server basehttp.py (line 213) log_message. "
 INFO 2024-08-15 16:00:35,363 django.server basehttp.py (line 213) log_message. "GET /accounts/login/ HTTP/1.1" 200 23127
 INFO 2024-08-15 16:00:45,857 django.server basehttp.py (line 213) log_message. "POST /accounts/login/ HTTP/1.1" 302 0
 INFO 2024-08-15 16:00:45,879 django.server basehttp.py (line 213) log_message. "GET / HTTP/1.1" 200 27446
+INFO 2024-08-15 16:03:16,593 django.utils.autoreload autoreload.py (line 668) run_with_reloader. Watching for file changes with StatReloader
+INFO 2024-08-15 16:03:19,013 django.server basehttp.py (line 213) log_message. "GET /about/ HTTP/1.1" 200 25862
+INFO 2024-08-15 20:23:40,946 django.server basehttp.py (line 213) log_message. "GET /about/ HTTP/1.1" 200 25949
+INFO 2024-08-15 20:25:13,771 django.server basehttp.py (line 213) log_message. "GET /about/ HTTP/1.1" 200 26106
+INFO 2024-08-15 20:30:32,371 django.utils.autoreload autoreload.py (line 668) run_with_reloader. Watching for file changes with StatReloader
+INFO 2024-08-15 20:30:37,714 django.server basehttp.py (line 213) log_message. "GET /about/ HTTP/1.1" 200 26187
+INFO 2024-08-15 20:31:55,496 django.utils.autoreload autoreload.py (line 668) run_with_reloader. Watching for file changes with StatReloader
