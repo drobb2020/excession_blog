@@ -63,6 +63,7 @@
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
+    <li><a href="#deployment">Deployment</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
@@ -83,7 +84,7 @@ Write something meaningful!
 ### Built With
 
 * [Django](https://www.djangoproject.com/)
-* [Bootstrap](https://getbootstrap.com/)
+* [Bootstrap](https://getbootstrap.com/) (Bootswatch theme - Slate)
 * [Font Awesome](https://fontawesome.com/)
 * [JQuery](https://jquery.com/)
 * [HTMX](https://htmx.org/)
@@ -94,58 +95,85 @@ Write something meaningful!
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+You're welcome to clone or download this repository and try it out for yourself. However, it's more fun to try this project for yourself from scratch. The tools that I use are:
+
+* Python 3.11.9
+* Django 5.1 (The project was actually started on Django 5.0.6)
+* Visual Studio Code 1.92.2
+
+Once you have a development environment up you can begin to code this project. For a complete step by step guide on the project setup see [PROJECT_SETUP.md](./PROJECT_SETUP.md). A PDF version of this document is also available.
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
+To start a django project at the least you need Python installed on your local workstation. Please visit [python.org](https://python.org) and follow the download link to download the latest version for your operating system. While this project was built on Python 3.11.9 it should run fine with Python 3.12.x.
+You should also create yourself a folder structure to contain your project and other supporting files. I developed this project on a Mac Mini and my full folder path is /Users/davidrobb/projects/David_Robb/excession_blog/. You should create a similar path for your own projects.
+Next you should pick a code editor that meets your needs. I use [Visual Studio Code](https://code.visualstudio.com/), but I have also used [PyCharm](https://www.jetbrains.com/pycharm/), [Atom](https://atom-editor.cc/), and [Sublime Text](https://www.sublimetext.com/).
 
-* npm
+After all of that the next step is to create a virtual environment
+
+* Python Virtual Environment (venv)
 
   ```sh
-  npm install npm@latest -g
+  cd /Users/davidrobb/projects/David_Robb/excession_blog/
+  python -m venv venv
+  source venv/bin/activate (Windows /venv/Scripts/activate)
   ```
+
+  Please see my [SUPPORTING_FILES.md](./SUPPORTING_FILES.md) that I add to each project to make things run smoother.
 
 ### Installation
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+The first package I typically install is pip-tools.
 
-   ```sh
-   git clone https://github.com/drobb2020/excession_blog.git
-   ```
+```sh
+pip install pip-tools
+```
 
-3. Install NPM packages
+But you can simply install the minimum necessary packages using the following command:
 
-   ```sh
-   npm install
-   ```
+```sh
+pip install django django-extensions environs[django] black ruff
+```
 
-4. Enter your API in `config.js`
+You should then run:
 
-   ```js
-   const API_KEY = 'ENTER YOUR API';
-   ```
+```sh
+pip freeze > requirements.txt
+```
+
+From this point forward you can start to create your project with the following command:
+
+```sh
+django-admin startproject blog_project [.]
+```
+
+The trailing period is optional. If you do not add it then you will end up with two folders named blog_project. The top folder will hold the full django project and a subfolder will hold the project settings file and other supporting files. If you use the period only the subfolder will be created.
+
+From this point forward you can now use the ```python manage.py``` script to add applications to the project. I typically start with accounts since I like to create a custom user model that I use with django-allauth.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+This is primarily a blog application with a few extra special features. Namely there is a ticketing system built into the project in case users have any problems with the application.
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+_For more examples, please refer to the [Documentation](https://github.com/drobb2020/excessio_blog/wiki)_
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+## Deployment
+
+Please read the [DEPLOYMENT_NOTES.md](./DEPLOYMENT_NOTES.md) file on how to deploy a django app using nginx, gunicorn and postgresql on an Ubuntu server.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- ROADMAP -->
 ## Roadmap
 
-- [ ] Feature 1
-- [ ] Feature 2
-- [ ] Feature 3
-  - [ ] Nested Feature
+- [ ] Add popup messages to all actions
+- [ ] Complete the setup of the monthly newsletter
+- [ ] Add celery and celery-beat for sending newsletters
 
 See the [open issues](https://github.com/drobb2020/excession_blog/issues) for a full list of proposed features (and known issues).
 
@@ -177,7 +205,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email@email_client.com
+David Robb - drobb2011@gmail.com
 
 Project Link: [https://github.com/drobb2020/excession_blog](https://github.com/drobb2020/excession_blog)
 
@@ -186,9 +214,9 @@ Project Link: [https://github.com/drobb2020/excession_blog](https://github.com/d
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
-* [User 1](https://example.com)
-* [User 2](https://example.com)
-* [User 3](https://example.com)
+* [Bugbytes](https://www.youtube.com/@bugbytes3923)
+* [John Elder - Codemy.com](https://www.youtube.com/@Codemycom)
+* [Corey Schafer](https://www.youtube.com/@coreyms)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
