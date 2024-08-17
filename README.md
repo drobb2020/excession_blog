@@ -171,9 +171,10 @@ Please read the [DEPLOYMENT_NOTES.md](./DEPLOYMENT_NOTES.md) file on how to depl
 <!-- ROADMAP -->
 ## Roadmap
 
-- [ ] Add popup messages to all actions
+- [X] Add popup messages to all actions
 - [ ] Complete the setup of the monthly newsletter
 - [ ] Add celery and celery-beat for sending newsletters
+- [ ] Add HTMX pagination to the post_list view
 
 See the [open issues](https://github.com/drobb2020/excession_blog/issues) for a full list of proposed features (and known issues).
 

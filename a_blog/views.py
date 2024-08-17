@@ -1,3 +1,4 @@
+from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.http import HttpResponse
@@ -60,6 +61,7 @@ def post_create(request):
         if form.is_valid():
             form.instance.author = author
             form.save()
+            messages.success(request, "Your post has been successfully submitted. It will be reviewed and approved shortly.")
             return redirect(reverse("posts"))
 
     context = {"form": form}
@@ -75,6 +77,7 @@ def post_update(request, post):
         if form.is_valid():
             form.instance.author = author
             form.save()
+            messages.success(request, "Your post has been successfully updated.")
             return redirect(reverse("posts"))
     context = {"form": form}
     return render(request, "a_blog/post_update.html", context)
@@ -84,6 +87,7 @@ def post_update(request, post):
 def post_delete(request, post):
     post = get_object_or_404(Post, slug=post)
     post.delete()
+    messages.success(request, "Your post has been deleted.")
     return redirect(reverse("posts"))
 
 
@@ -101,6 +105,7 @@ def update_status(request, post):
     if request.method == "POST":
         if form.is_valid():
             form.save()
+            messages.success(request, "The post has been approved.")
             return redirect(reverse("posts"))
     context = {"form": form}
     return render(request, "a_blog/update_status.html", context)

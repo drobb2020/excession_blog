@@ -30,6 +30,7 @@ def profile_edit_view(request):
         form = ProfileForm(request.POST, request.FILES, instance=request.user.profile)
         if form.is_valid():
             form.save()
+            messages.success(request, "Your profile has been updated. Thanks for telling us a bit about yourself.")
             return redirect("profile")
 
     if request.path == reverse("profile-onboarding"):
@@ -54,15 +55,13 @@ def profile_emailchange(request):
 
     if request.method == "POST":
         form = EmailForm(request.POST, instance=request.user)
-
         if form.is_valid():
-
             # Check if the email already exists
             email = form.cleaned_data["email"]
             if User.objects.filter(email=email).exclude(id=request.user.id).exists():
                 messages.warning(request, f"{email} is already in use.")
                 return redirect("profile-settings")
-
+            messages.success(request, "Your email address has been updated. Please remember to use your new email when logging on.")
             form.save()
 
             # Then Signal updates EmailAddress and set verified to False

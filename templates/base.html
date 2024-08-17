@@ -18,10 +18,12 @@
     <!-- Alpine.js -->
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.14.0/cdn.min.js" integrity="sha512-4e/5PZ1eoLJMDjaJXTHkWRA0yec8bm07/iINYSd5rdJ38jGm5OZkEi3J+7LqSDWNATNJ4/aneNlrk2AYnnckIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- Custom JavaScript -->
-    <script src="{% static 'js/base.js' %}"></script>
+    <script src="{% static 'js/base.js' %}" defer></script>
+    <script src="{% static 'js/alert-dismiss.js' %}" defer></script>
 </head>
 <body id="wrap">
     {% include 'includes/navbar.html' %}
+    {% include 'partials/message.html' %}
     <div class="container mt-5">
         {% block content %}
         
