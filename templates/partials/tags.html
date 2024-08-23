@@ -1,0 +1,8 @@
+<span>
+  <a
+    href="{% url 'post_by_tag' tag.slug %}"
+    class="btn btn-outline-light text-bg-light rounded-pill mb-2 fs-15 fw-500"
+  >
+    {{ tag.name|upper }}
+  </a>
+</span>

@@ -60,6 +60,7 @@ INSTALLED_APPS = [
     "allauth.account", 
     "crispy_bootstrap5",
     "crispy_forms",
+    "compressor",
     "debug_toolbar",
     "django_extensions",
     "import_export",
@@ -175,10 +176,17 @@ USE_TZ = False
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'compressor.finders.CompressorFinder',
+)
 STATIC_URL = "static/"
 STATICFILES_DIRS = [BASE_DIR / "static"]
 STATIC_ROOT = BASE_DIR / "staticfiles"
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
+COMPRESS_ENABLED = True
 
 MEDIA_URL = "media/"
 MEDIA_ROOT = BASE_DIR / "media"

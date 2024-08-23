@@ -61,7 +61,10 @@ def post_create(request):
         if form.is_valid():
             form.instance.author = author
             form.save()
-            messages.success(request, "Your post has been successfully submitted. It will be reviewed and approved shortly.")
+            messages.success(
+                request,
+                "Your post has been successfully submitted. It will be reviewed and approved shortly.",
+            )
             return redirect(reverse("posts"))
 
     context = {"form": form}

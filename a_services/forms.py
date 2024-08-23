@@ -1,12 +1,14 @@
 from django import forms
 
-from .models import Review, Ticket, Subscriber
+from .models import Review, Subscriber, Ticket
 
 
 class ReviewForm(forms.ModelForm):
 
     class Meta:
-        comment = forms.CharField(widget=forms.Textarea(attrs={"placeholder": "Add your review here..."}))
+        comment = forms.CharField(
+            widget=forms.Textarea(attrs={"placeholder": "Add your review here..."})
+        )
 
         model = Review
         fields = [
@@ -34,4 +36,4 @@ class UpdateTicketForm(forms.ModelForm):
 class SubscribeForm(forms.ModelForm):
     class Meta:
         model = Subscriber
-        fields = ['name', 'email']
+        fields = ["name", "email"]

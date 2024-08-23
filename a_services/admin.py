@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.contrib import admin
 
-from .models import Ticket, Review, Subscriber, EmailTemplate
+from .models import EmailTemplate, Review, Subscriber, Ticket
 
 
 @admin.register(Review)

@@ -24,13 +24,13 @@ flake8 is a tool designed to enforce the style guide recommendations. As such it
 
 ## .ruff.toml
 
-Ruff is the modern replacement for flake8. I actually no longer use flake8, I only install Black and ruff. Here is the current content of my ruff.toml file:
+Ruff is the modern replacement for flake8. I actually no longer use flake8, I only install Black and ruff. Here is the current content of my .ruff.toml file:
 
 ```sh
-select = ["E", "F"]
-ignore = []
+lint.select = ["E", "F"]
+lint.ignore = []
 
-fixable = [
+lint.fixable = [
     "A",
     "B",
     "C",
@@ -76,7 +76,7 @@ fixable = [
     "UP",
     "YTT"
 ]
-unfixable = []
+lint.unfixable = []
 
 exclude = [
     ".bzr",
@@ -107,7 +107,7 @@ exclude = [
 
 line-length = 119
 
-dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+lint.dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
 
 target-version = "py311"
 ```

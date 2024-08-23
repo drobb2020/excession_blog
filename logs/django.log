@@ -4700,3 +4700,150 @@ INFO 2024-08-17 19:16:44,813 django.server basehttp.py (line 213) log_message. "
 INFO 2024-08-17 19:17:00,992 django.server basehttp.py (line 213) log_message. "GET /about/ HTTP/1.1" 200 30223
 INFO 2024-08-17 19:17:27,181 django.server basehttp.py (line 213) log_message. "GET /about/ HTTP/1.1" 200 30239
 INFO 2024-08-17 19:22:22,335 django.server basehttp.py (line 213) log_message. "GET /about/ HTTP/1.1" 200 30232
+INFO 2024-08-17 19:26:26,464 django.server basehttp.py (line 213) log_message. "GET /posts/ HTTP/1.1" 200 95171
+INFO 2024-08-17 19:26:26,491 django.server basehttp.py (line 213) log_message. "GET /static/js/alert-dismiss.js HTTP/1.1" 304 0
+INFO 2024-08-17 19:26:26,491 django.server basehttp.py (line 213) log_message. "GET /static/js/base.js HTTP/1.1" 304 0
+INFO 2024-08-17 19:29:58,454 django.server basehttp.py (line 213) log_message. "GET /posts/ HTTP/1.1" 200 149597
+INFO 2024-08-17 19:30:25,572 django.server basehttp.py (line 213) log_message. "GET /posts/ HTTP/1.1" 200 78793
+INFO 2024-08-17 19:31:51,346 django.server basehttp.py (line 213) log_message. "GET /posts/ HTTP/1.1" 200 78793
+INFO 2024-08-17 19:31:51,365 django.server basehttp.py (line 213) log_message. "GET /static/debug_toolbar/js/toolbar.js HTTP/1.1" 200 14601
+INFO 2024-08-17 19:31:51,367 django.server basehttp.py (line 213) log_message. "GET /static/css/base.css HTTP/1.1" 200 547
+INFO 2024-08-17 19:31:51,384 django.server basehttp.py (line 213) log_message. "GET /media/posts/default.jpg HTTP/1.1" 200 79969
+INFO 2024-08-17 19:31:51,406 django.server basehttp.py (line 213) log_message. "GET /static/debug_toolbar/css/toolbar.css HTTP/1.1" 200 16675
+INFO 2024-08-17 19:31:51,459 django.server basehttp.py (line 213) log_message. "GET /static/js/base.js HTTP/1.1" 200 64
+INFO 2024-08-17 19:31:51,459 django.server basehttp.py (line 213) log_message. "GET /static/js/alert-dismiss.js HTTP/1.1" 200 318
+INFO 2024-08-17 19:31:51,460 django.server basehttp.py (line 213) log_message. "GET /static/images/logo.png HTTP/1.1" 200 55704
+INFO 2024-08-17 19:31:51,463 django.server basehttp.py (line 213) log_message. "GET /static/debug_toolbar/css/print.css HTTP/1.1" 200 43
+INFO 2024-08-17 19:31:51,518 django.server basehttp.py (line 213) log_message. "GET /static/debug_toolbar/js/utils.js HTTP/1.1" 200 4742
+INFO 2024-08-17 19:31:51,794 django.server basehttp.py (line 213) log_message. "GET /static/assets/favicon.ico HTTP/1.1" 200 67646
+INFO 2024-08-18 00:05:29,864 django.server basehttp.py (line 213) log_message. "GET /posts/ HTTP/1.1" 200 78697
+INFO 2024-08-18 00:05:29,943 django.server basehttp.py (line 213) log_message. "GET /static/js/base.js HTTP/1.1" 304 0
+INFO 2024-08-18 00:05:29,944 django.server basehttp.py (line 213) log_message. "GET /static/js/alert-dismiss.js HTTP/1.1" 304 0
+INFO 2024-08-18 00:05:49,446 django.server basehttp.py (line 213) log_message. "GET /posts/ HTTP/1.1" 200 78707
+INFO 2024-08-18 00:06:04,807 django.server basehttp.py (line 213) log_message. "GET /posts/ HTTP/1.1" 200 78708
+INFO 2024-08-18 00:06:32,628 django.server basehttp.py (line 213) log_message. "GET /posts/ HTTP/1.1" 200 78697
+INFO 2024-08-22 23:36:29,458 django.utils.autoreload autoreload.py (line 668) run_with_reloader. Watching for file changes with StatReloader
+INFO 2024-08-22 23:41:21,795 django.utils.autoreload autoreload.py (line 266) trigger_reload. /Users/davidrobb/Projects/David_Robb/excession_blog/a_blog/models.py changed, reloading.
+INFO 2024-08-22 23:41:22,285 django.utils.autoreload autoreload.py (line 668) run_with_reloader. Watching for file changes with StatReloader
+INFO 2024-08-23 00:51:34,498 django.utils.autoreload autoreload.py (line 668) run_with_reloader. Watching for file changes with StatReloader
+ERROR 2024-08-23 00:51:40,264 django.request log.py (line 248) log_response. Internal Server Error: /
+Traceback (most recent call last):
+  File "/Users/davidrobb/Projects/David_Robb/excession_blog/venv/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/davidrobb/Projects/David_Robb/excession_blog/venv/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/davidrobb/Projects/David_Robb/excession_blog/a_core/views.py", line 23, in index
+    return render(request, "a_core/index.html", context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/davidrobb/Projects/David_Robb/excession_blog/venv/lib/python3.11/site-packages/django/shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/davidrobb/Projects/David_Robb/excession_blog/venv/lib/python3.11/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/davidrobb/Projects/David_Robb/excession_blog/venv/lib/python3.11/site-packages/django/template/backends/django.py", line 107, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/davidrobb/Projects/David_Robb/excession_blog/venv/lib/python3.11/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/davidrobb/Projects/David_Robb/excession_blog/venv/lib/python3.11/site-packages/django/test/utils.py", line 114, in instrumented_test_render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/davidrobb/Projects/David_Robb/excession_blog/venv/lib/python3.11/site-packages/django/template/base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/davidrobb/Projects/David_Robb/excession_blog/venv/lib/python3.11/site-packages/django/template/base.py", line 1008, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/davidrobb/Projects/David_Robb/excession_blog/venv/lib/python3.11/site-packages/django/template/base.py", line 969, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/davidrobb/Projects/David_Robb/excession_blog/venv/lib/python3.11/site-packages/django/template/loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/davidrobb/Projects/David_Robb/excession_blog/venv/lib/python3.11/site-packages/django/test/utils.py", line 114, in instrumented_test_render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/davidrobb/Projects/David_Robb/excession_blog/venv/lib/python3.11/site-packages/django/template/base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/davidrobb/Projects/David_Robb/excession_blog/venv/lib/python3.11/site-packages/django/template/base.py", line 1008, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/davidrobb/Projects/David_Robb/excession_blog/venv/lib/python3.11/site-packages/django/template/base.py", line 969, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/davidrobb/Projects/David_Robb/excession_blog/venv/lib/python3.11/site-packages/compressor/templatetags/compress.py", line 160, in render
+    return self.render_compressed(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/davidrobb/Projects/David_Robb/excession_blog/venv/lib/python3.11/site-packages/compressor/templatetags/compress.py", line 123, in render_compressed
+    cache_key, cache_content = self.render_cached(compressor, kind, mode)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/davidrobb/Projects/David_Robb/excession_blog/venv/lib/python3.11/site-packages/compressor/templatetags/compress.py", line 96, in render_cached
+    cache_key = get_templatetag_cachekey(compressor, mode, kind)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/davidrobb/Projects/David_Robb/excession_blog/venv/lib/python3.11/site-packages/compressor/cache.py", line 100, in get_templatetag_cachekey
+    return get_cachekey("templatetag.%s.%s.%s" % (compressor.cachekey, mode, kind))
+                                                  ^^^^^^^^^^^^^^^^^^^
+  File "/Users/davidrobb/Projects/David_Robb/excession_blog/venv/lib/python3.11/site-packages/django/utils/functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ^^^^^^^^^^^^^^^^^^^
+  File "/Users/davidrobb/Projects/David_Robb/excession_blog/venv/lib/python3.11/site-packages/compressor/base.py", line 240, in cachekey
+    "".join([self.content] + self.mtimes).encode(self.charset), 12
+                             ^^^^^^^^^^^
+  File "/Users/davidrobb/Projects/David_Robb/excession_blog/venv/lib/python3.11/site-packages/django/utils/functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ^^^^^^^^^^^^^^^^^^^
+  File "/Users/davidrobb/Projects/David_Robb/excession_blog/venv/lib/python3.11/site-packages/compressor/base.py", line 233, in mtimes
+    for kind, value, basename, elem in self.split_contents()
+                                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/davidrobb/Projects/David_Robb/excession_blog/venv/lib/python3.11/site-packages/compressor/css.py", line 22, in split_contents
+    basename = self.get_basename(elem_attribs["href"])
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/davidrobb/Projects/David_Robb/excession_blog/venv/lib/python3.11/site-packages/compressor/base.py", line 121, in get_basename
+    raise UncompressableFileError(
+compressor.exceptions.UncompressableFileError: 'https://bootswatch.com/5/slate/bootstrap.min.css' isn't accessible via COMPRESS_URL ('/static/') and can't be compressed
+ERROR 2024-08-23 00:51:40,310 django.server basehttp.py (line 213) log_message. "GET / HTTP/1.1" 500 227042
+INFO 2024-08-23 00:51:40,319 django.server basehttp.py (line 213) log_message. "GET /static/debug_toolbar/css/toolbar.css HTTP/1.1" 304 0
+INFO 2024-08-23 00:51:40,319 django.server basehttp.py (line 213) log_message. "GET /static/debug_toolbar/js/toolbar.js HTTP/1.1" 304 0
+INFO 2024-08-23 00:51:40,347 django.server basehttp.py (line 213) log_message. "GET /static/debug_toolbar/css/print.css HTTP/1.1" 304 0
+INFO 2024-08-23 00:51:40,463 django.server basehttp.py (line 213) log_message. "GET /static/debug_toolbar/js/utils.js HTTP/1.1" 304 0
+WARNING 2024-08-23 00:51:40,636 django.request log.py (line 248) log_response. Not Found: /favicon.ico
+WARNING 2024-08-23 00:51:40,636 django.server basehttp.py (line 213) log_message. "GET /favicon.ico HTTP/1.1" 404 18007
+INFO 2024-08-23 00:52:50,748 django.server basehttp.py (line 213) log_message. "GET / HTTP/1.1" 200 27606
+INFO 2024-08-23 00:52:50,774 django.server basehttp.py (line 213) log_message. "GET /static/CACHE/css/output.1ab1ce0aec19.css HTTP/1.1" 200 361
+INFO 2024-08-23 00:52:50,777 django.server basehttp.py (line 213) log_message. "GET /static/images/landing1.jpg HTTP/1.1" 200 316069
+INFO 2024-08-23 00:52:50,887 django.server basehttp.py (line 213) log_message. "GET /static/CACHE/js/output.441fbb682296.js HTTP/1.1" 200 352
+INFO 2024-08-23 00:55:56,526 django.server basehttp.py (line 213) log_message. "GET / HTTP/1.1" 200 27604
+INFO 2024-08-23 00:55:56,540 django.server basehttp.py (line 213) log_message. "GET /static/CACHE/css/output.1ab1ce0aec19.css HTTP/1.1" 304 0
+INFO 2024-08-23 00:55:56,540 django.server basehttp.py (line 213) log_message. "GET /static/CACHE/js/output.441fbb682296.js HTTP/1.1" 304 0
+INFO 2024-08-23 01:00:29,205 django.server basehttp.py (line 213) log_message. "GET / HTTP/1.1" 200 27604
+INFO 2024-08-23 01:00:29,214 django.server basehttp.py (line 213) log_message. "GET /static/CACHE/css/output.1ab1ce0aec19.css HTTP/1.1" 304 0
+INFO 2024-08-23 01:00:29,235 django.server basehttp.py (line 213) log_message. "GET /static/CACHE/js/output.441fbb682296.js HTTP/1.1" 304 0
+INFO 2024-08-23 01:07:45,711 django.server basehttp.py (line 213) log_message. "GET / HTTP/1.1" 200 27604
+INFO 2024-08-23 01:07:45,728 django.server basehttp.py (line 213) log_message. "GET /static/CACHE/css/output.1ab1ce0aec19.css HTTP/1.1" 304 0
+INFO 2024-08-23 01:07:45,762 django.server basehttp.py (line 213) log_message. "GET /static/CACHE/js/output.441fbb682296.js HTTP/1.1" 304 0
+INFO 2024-08-23 01:07:48,207 django.server basehttp.py (line 213) log_message. "GET / HTTP/1.1" 200 27604
+INFO 2024-08-23 01:08:04,061 django.server basehttp.py (line 213) log_message. "GET / HTTP/1.1" 200 27604
+INFO 2024-08-23 01:08:04,081 django.server basehttp.py (line 213) log_message. "GET /static/debug_toolbar/js/toolbar.js HTTP/1.1" 200 14601
+INFO 2024-08-23 01:08:04,082 django.server basehttp.py (line 213) log_message. "GET /static/CACHE/css/output.1ab1ce0aec19.css HTTP/1.1" 200 361
+INFO 2024-08-23 01:08:04,084 django.server basehttp.py (line 213) log_message. "GET /static/images/landing1.jpg HTTP/1.1" 200 140216
+INFO 2024-08-23 01:08:04,099 django.server basehttp.py (line 213) log_message. "GET /media/posts/default.jpg HTTP/1.1" 200 24174
+INFO 2024-08-23 01:08:04,117 django.server basehttp.py (line 213) log_message. "GET /static/images/logo.png HTTP/1.1" 200 21187
+INFO 2024-08-23 01:08:04,149 django.server basehttp.py (line 213) log_message. "GET /static/debug_toolbar/css/toolbar.css HTTP/1.1" 200 16675
+INFO 2024-08-23 01:08:04,310 django.server basehttp.py (line 213) log_message. "GET /static/CACHE/js/output.441fbb682296.js HTTP/1.1" 200 352
+INFO 2024-08-23 01:08:04,766 django.server basehttp.py (line 213) log_message. "GET /static/debug_toolbar/css/print.css HTTP/1.1" 200 43
+INFO 2024-08-23 01:08:04,834 django.server basehttp.py (line 213) log_message. "GET /static/debug_toolbar/js/utils.js HTTP/1.1" 200 4742
+INFO 2024-08-23 01:08:05,176 django.server basehttp.py (line 213) log_message. "GET /static/assets/favicon.ico HTTP/1.1" 200 67646
+INFO 2024-08-23 01:08:24,920 django.server basehttp.py (line 213) log_message. "GET /posts/ HTTP/1.1" 200 78702
+INFO 2024-08-23 01:08:24,935 django.server basehttp.py (line 213) log_message. "GET /static/images/logo.png HTTP/1.1" 304 0
+INFO 2024-08-23 01:08:24,944 django.server basehttp.py (line 213) log_message. "GET /media/posts/default.jpg HTTP/1.1" 304 0
+INFO 2024-08-23 01:08:34,715 django.server basehttp.py (line 213) log_message. "GET /posts/ HTTP/1.1" 200 78702
+INFO 2024-08-23 01:08:34,732 django.server basehttp.py (line 213) log_message. "GET /static/images/logo.png HTTP/1.1" 304 0
+INFO 2024-08-23 01:08:34,741 django.server basehttp.py (line 213) log_message. "GET /media/posts/default.jpg HTTP/1.1" 304 0
+INFO 2024-08-23 01:08:35,839 django.server basehttp.py (line 213) log_message. "GET / HTTP/1.1" 200 27604
+INFO 2024-08-23 01:08:35,852 django.server basehttp.py (line 213) log_message. "GET /static/images/logo.png HTTP/1.1" 304 0
+INFO 2024-08-23 01:08:35,852 django.server basehttp.py (line 213) log_message. "GET /static/images/landing1.jpg HTTP/1.1" 304 0

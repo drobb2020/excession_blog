@@ -1,8 +1,8 @@
 from django.contrib import admin
 from import_export.admin import ImportExportModelAdmin
 from unfold.admin import ModelAdmin
-from unfold.contrib.import_export.forms import ExportForm, ImportForm
 from unfold.contrib.filters.admin import RangeDateFilter
+from unfold.contrib.import_export.forms import ExportForm, ImportForm
 
 from .models import Comment, Post
 
@@ -10,15 +10,15 @@ from .models import Comment, Post
 @admin.register(Comment)
 class CommentAdmin(ModelAdmin):
     list_display = (
-        'post',
-        'name',
-        'email',
-        'created_at',
-        'status',
+        "post",
+        "name",
+        "email",
+        "created_at",
+        "status",
     )
-    list_filter = ('post', 'created_at', 'updated_at', 'status')
-    search_fields = ('name',)
-    date_hierarchy = 'created_at'
+    list_filter = ("post", "created_at", "updated_at", "status")
+    search_fields = ("name",)
+    date_hierarchy = "created_at"
 
 
 @admin.register(Post)
@@ -28,9 +28,7 @@ class PostAdmin(ModelAdmin, ImportExportModelAdmin):
     import_form_class = ImportForm
     export_form_class = ExportForm
     search_fields = ("title", "status")
-    prepopulated_fields = {
-        "slug": ("title",)
-    }
+    prepopulated_fields = {"slug": ("title",)}
     list_filter = [
         "author",
         "status",

@@ -45,6 +45,8 @@ django==5.1
     #   crispy-bootstrap5
     #   dj-database-url
     #   django-allauth
+    #   django-appconf
+    #   django-compressor
     #   django-crispy-forms
     #   django-debug-toolbar
     #   django-extensions
@@ -56,9 +58,13 @@ django==5.1
     #   djangorestframework
 django-allauth==64.0.0
     # via -r requirements.in
+django-appconf==1.0.6
+    # via django-compressor
 django-cache-url==3.4.5
     # via environs
 django-cleanup==8.1.0
+    # via -r requirements.in
+django-compressor==4.5.1
     # via -r requirements.in
 django-crispy-forms==2.3
     # via
@@ -135,6 +141,8 @@ pyyaml==6.0.1
     # via pyhanko
 qrcode==7.4.2
     # via pyhanko
+rcssmin==1.1.2
+    # via django-compressor
 reportlab[pycairo]==4.2.2
     # via
     #   -r requirements.in
@@ -145,6 +153,8 @@ requests==2.32.2
     # via
     #   pyhanko
     #   pyhanko-certvalidator
+rjsmin==1.2.2
+    # via django-compressor
 rlpycairo==0.3.0
     # via reportlab
 six==1.16.0

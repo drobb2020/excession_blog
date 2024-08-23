@@ -1,9 +1,8 @@
 from rest_framework import serializers
 from taggit.serializers import TaggitSerializer, TagListSerializerField
 
-from a_services.models import Review
-
 from a_blog.models import Post
+from a_services.models import Review
 
 
 class PostSerializer(TaggitSerializer, serializers.ModelSerializer):

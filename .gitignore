@@ -71,6 +71,7 @@ cover/
 *.mo
 
 # Django stuff:
+staticfiles
 
 # Flask stuff:
 instance/
@@ -210,6 +211,7 @@ Temporary Items
 !.vscode/launch.json
 !.vscode/extensions.json
 !.vscode/*.code-snippets
+!media/posts/default.jpg
 
 # Local History for Visual Studio Code
 .history/

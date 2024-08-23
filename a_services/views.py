@@ -11,7 +11,7 @@ from django.views.generic import TemplateView
 
 from a_profile.models import Profile
 
-from .forms import CreateTicketForm, ReviewForm, UpdateTicketForm, SubscribeForm
+from .forms import CreateTicketForm, ReviewForm, SubscribeForm, UpdateTicketForm
 from .models import Review, Ticket
 
 User = get_user_model()
@@ -28,7 +28,9 @@ def review(request):
             review.user = request.user
             review.email = request.user.email
             review.save()
-            messages.success(request, "Thank you for submitting a review of this website.")
+            messages.success(
+                request, "Thank you for submitting a review of this website."
+            )
             return redirect("reviews")
     context = {"form": form, "reviews": reviews}
     return render(request, "a_services/reviews.html", context)
@@ -88,7 +90,7 @@ def dashboard(request):
         "eng_active": eng_active,
         "eng_completed": eng_completed,
     }
-    return render(request, 'a_services/dashboard.html', context)
+    return render(request, "a_services/dashboard.html", context)
 
 
 # View ticket details

@@ -27,4 +27,8 @@ class Command(BaseCommand):
                 status="published",
                 tags="testing",
             )
-        print(f"{number} blog posts were generated for testing purposes!", Post.objects.all(), sep='\n')
+        print(
+            f"{number} blog posts were generated for testing purposes!",
+            Post.objects.all(),
+            sep="\n",
+        )

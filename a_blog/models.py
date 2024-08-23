@@ -1,10 +1,10 @@
-from django.db import models
 from django.contrib.auth import get_user_model
+from django.db import models
+from django.template.defaultfilters import slugify
 from django.urls import reverse
 from django.utils import timezone
 from taggit.managers import TaggableManager
 from tinymce import models as tinymce_models
-from django.template.defaultfilters import slugify
 
 User = get_user_model()
 

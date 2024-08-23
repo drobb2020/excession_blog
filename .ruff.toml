@@ -1,7 +1,7 @@
-select = ["E", "F"]
-ignore = ["F401"]
+lint.select = ["E", "F", "B", "I"]
+lint.ignore = ["F401"]
 
-fixable = [
+lint.fixable = [
     "A",
     "B",
     "C",
@@ -46,7 +46,8 @@ fixable = [
     "TRY",
     "UP",
     "YTT"]
-unfixable = []
+
+lint.unfixable = []
 
 exclude = [
     ".bzr",
@@ -76,8 +77,8 @@ exclude = [
 ]
 
 
-line-length = 400
+line-length = 119
 
-dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+lint.dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
 
 target-version = "py311"
