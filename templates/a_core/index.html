@@ -1,12 +1,13 @@
 {% extends 'base.html' %}
 
 {% load static %}
+{% load heroicons %}
 
 {% block title %}| Home{% endblock title %}
 
 {% block content %}
 
-<h1 class="mt-5">Excession Development Blog</h1>
+<h1 class="mt-5">Excession Development Blog</h1> 
   <div class="row mt-3">
     <div class="col-md-9">
       <img
@@ -56,7 +57,7 @@
   <div class="text-center">
       <div class="col-md-6 offset-md-3">
         <p class="lead mb-3">Please consider joining the blog by creating an account.</p>
-        <a href="{% url 'account_signup' %}" class="btn btn-secondary btn-lg">Get Started</a>
+        <a href="{% url 'account_signup' %}" class="btn btn-secondary btn-lg">{% heroicon_outline "user-plus" size=40 %} Get Started</a>
       </div>
   </div>
 {% endif %}

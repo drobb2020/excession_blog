@@ -1,6 +1,7 @@
 {% extends 'base.html' %} 
 
-{% load static %} 
+{% load static %}
+{% load heroicons %}
 
 {% block title %}| Profile{% endblock title %} 
 
@@ -20,12 +21,13 @@
         <div class="mt-4">{{ profile.fav_quote|linebreaksbr }}</div>
         {% endif %}
         <h5 class="text-center">{{ profile.fav_quote_author }}</h5>
+        <hr />
         {% if profile.social_website %}
           <a
             title="Personal Website"
             href="{{ profile.social_website }}"
             target="_blank"
-            ><i class="fa-light fa-earth-americas fa-xl"></i
+            >{% heroicon_outline "globe-americas" size=40 %}</i
           ></a>
           {% endif %}
       </div>

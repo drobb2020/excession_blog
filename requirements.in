@@ -8,6 +8,7 @@ django-debug-toolbar==4.4.6
 django-extensions==3.2.3
 django-htmx==1.19.0
 django-import-export==4.1.1
+django-template-partials==24.4
 djangorestframework==3.15.2
 django-taggit==6.0.0
 django-tinymce==4.1.0
@@ -15,6 +16,7 @@ django-unfold==0.35.0
 django-widget-tweaks==1.5.0
 environs[django]==11.0.0
 gunicorn==23.0.0
+heroicons==2.8.0
 pillow==10.4.0
 psycopg2==2.9.9
 reportlab[pycairo]==4.2.2

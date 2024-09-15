@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
-{% load static %} 
+{% load static %}
+{% load heroicons %}
 
 {% block title %}| All Posts{% endblock title %}
 
@@ -23,35 +24,34 @@
           <a
             href="{% url 'post-create' %}"
             class="btn btn-success btn-lg my-2 px-4"
-            ><i class="fa-sharp fa-solid fa-plus"></i> Create A Post</a
+            >{% heroicon_outline "plus-circle" size=40 %} Create A Post</a
           >
         </p>
         {% endif %}
       </div>
     </section>
+
     <!-- tag section -->
     <div class="mb-4">
-      <div class="border border-2">
+      <div class="border border-2 rounded-2">
         <div class="py-4">
           <h4 class="pb-2 fw-bold fs-14 text-center">Posts by Tag</h4>
           <div class="text-center">
-            {% for tag in tags %}
-              {% include 'partials/tags.html' %}
-            {% endfor %}
+            {% include 'partials/tag-element.html' %}
           </div>
         </div>
       </div>
     </div>
+
     <div class="album py-5 bg-dark">
       <!-- Post card container -->
       <div class="container">
         <div class="row">
-          {% for post in posts %}
-            {% include 'partials/single_post.html' %}
-          {% endfor %}
+          {% include 'partials/post-element.html' %}
         </div>
       </div>
     </div>
+
 </main>
 
 {% endblock content %}

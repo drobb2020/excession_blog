@@ -53,6 +53,7 @@ django==5.1
     #   django-htmx
     #   django-import-export
     #   django-taggit
+    #   django-template-partials
     #   django-tinymce
     #   django-unfold
     #   djangorestframework
@@ -80,6 +81,8 @@ django-import-export==4.1.1
     # via -r requirements.in
 django-taggit==6.0.0
     # via -r requirements.in
+django-template-partials==24.4
+    # via -r requirements.in
 django-tinymce==4.1.0
     # via -r requirements.in
 django-unfold==0.35.0
@@ -97,6 +100,8 @@ freetype-py==2.3.0
     #   reportlab
     #   rlpycairo
 gunicorn==23.0.0
+    # via -r requirements.in
+heroicons==2.8.0
     # via -r requirements.in
 html5lib==1.1
     # via xhtml2pdf

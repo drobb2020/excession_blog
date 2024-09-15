@@ -63,9 +63,11 @@ INSTALLED_APPS = [
     "compressor",
     "debug_toolbar",
     "django_extensions",
+    "heroicons",
     "import_export",
     "rest_framework",
     "taggit",
+    "template_partials",
     "tinymce",
     "widget_tweaks",
     # Applications
@@ -248,3 +250,5 @@ UNFOLD = {
     "SITE_HEADER": "Excession Development Blog",
     "SITE_SYMBOL": "bookmark",
 }
+
+PAGE_SIZE = 6
