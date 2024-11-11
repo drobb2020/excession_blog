@@ -18,9 +18,7 @@ from .models import Comment, Post
 def post_list(request):
     posts = Post.objects.filter(Q(status="Published"))
     tags = Tag.objects.all()
-    paginator = Paginator(posts, settings.PAGE_SIZE)
-    post_page = paginator.page(1)
-    context = {"posts": post_page, "tags": tags}
+    context = {"posts": posts, "tags": tags}
     return render(request, "a_blog/post_list.html", context)
 
 
