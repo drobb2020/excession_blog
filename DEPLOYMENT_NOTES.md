@@ -2,11 +2,13 @@
 
 IMPORTANT: When running these commands and configurations on the server make sure you are doing this as root. By default Ubuntu does not allow a direct login as root since the account does not have a password. To set a password on the root user do the following:
 
+NOTICE: This document assumes that the project you wish to deploy to Ubuntu is fully functioning in a development environment.
+
 - sudo passwd root
 - enter the password you want to set for root
 - repeat the password
 
-Now log off the server and re-authenticate as root.
+Now log off the server and re-authenticate as root with the password you set and run the commands in this document.
 
 ## Preparing the Server
 
@@ -22,7 +24,7 @@ Install the following software packages on the server
 
 Run the following commands to create the postgresql database:
 
-* [X] sudo postgres -u psql (login to postgresql console)
+* [X] Login into the postgresql console: ```sudo -u postgres psql```
 * [X] Run the following set of commands
   * [X] ```ALTER USER postgres with encrypted password 'your_password';```
   * [X] ```CREATE DATABASE excsblogdb;```
@@ -52,12 +54,32 @@ Create a virtual environment for Python (as root)
   * [X] source env_3.11.9/bin/activate
   * [X] cd env_3.12.3/
 
-## Cloning project from Github
+## Run a Pre Deployment Check
 
+* [ ] Run ```python manage.py check deploy```
+* [ ] Review the results in the console output
+* [ ] You should not have DEBUG set to True in deployment.
+  * [ ] Change the first line in the .env file (ENVIRONMENT) from development to production, this will change debug to False.
+* [ ] You have 'django.middleware.csrf.CsrfViewMiddleware' in your MIDDLEWARE, but you have not set CSRF_COOKIE_SECURE to True. Using a secure-only CSRF cookie makes it more difficult for network traffic sniffers to steal the CSRF token.
+  * [ ] The change of the ENVIRONMENT setting in .env will set the CSRF_COOKIE_SECURE to True
+* [ ] SESSION_COOKIE_SECURE is not set to True. Using a secure-only session cookie makes it more difficult for network traffic sniffers to hijack user sessions.
+  * [ ] The change of the ENVIRONMENT setting in .env will set the SESSION_COOKIE_SECURE to True
+* [ ] Your SECURE_SSL_REDIRECT setting is not set to True. Unless your site should be available over both SSL and non-SSL connections, you may want to either set this setting True or configure a load balancer or reverse-proxy server to redirect all connections to HTTPS.
+  * [ ] In settings.py add the line SECURE_SSL_REDIRECT = True
+* [ ] You have not set a value for the SECURE_HSTS_SECONDS setting. If your entire site is served only over SSL, you may want to consider setting a value and enabling HTTP Strict Transport Security. Be sure to read the documentation first; enabling HSTS carelessly can cause serious, irreversible problems.
+  * [ ] Add the following lines to settings.py to configure HSTS on the server
+  * SECURE_HSTS_SECONDS = 86400
+  * SECURE_HSTS_PRELOAD = True
+  * SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+* [ ] Push any changes up to Git.
+
+## Cloning the Project from Github
+
+* [X] Make sure you are inside the virtual environment folder (env_3.12.3/)
 * [X] git clone https://github.com/drobb2020/excession_blog.git
 * [X] Install packages and postgresql driver
   * [X] pip install -r requirements.txt
-  * [X] pip install psycopg2-binary ( or psycopg2)
+  * [X] pip install psycopg2-binary ( or psycopg2 or possibly the latest version)
 
 ## Configure settings.py for new database
 
@@ -115,8 +137,8 @@ Create a virtual environment for Python (as root)
 
 * [X] chmod +x bin/gunicorn_start
 * [X] ./bin/gunicorn_start (to test) (troubleshoot if it does not start, stop it if it does start)
-* [X] at this point all the files and folders under env_3.10.6 are owned by root:root. This needs to be modified so that all files and folder are owned by django:webapps. To do this run the following command:
-  * [X] make sure you are in the env_3.10.6 folder
+* [X] at this point all the files and folders under env_3.12.3 are owned by root:root. This needs to be modified so that all files and folder are owned by django:webapps. To do this run the following command:
+  * [X] make sure you are in the env_3.12.3 folder
   * [X] chown -R django:webapps .
 
 ## Install and Configure Supervisor
@@ -124,46 +146,46 @@ Create a virtual environment for Python (as root)
 * [X] Install and setup supervisor
   * [X] apt install supervisor
   * [X] cd /etc/supervisor/conf.d/
-  * [X] Create the following configuration file djangoblog.conf
+  * [X] Create the following configuration file excession_blog.conf
 
     ```sh
-    [program:djangoblog]
-    command = /webapps/djangoblog/env_3.10.6/bin/gunicorn_start
-    user = djangoblog
-    stdout_logfile = /webapps/djangoblog/env_3.10.6/logs/supervisor.log
+    [program:excession_blog]
+    command = /webapps/excession_blog/env_3.12.3/bin/gunicorn_start
+    user = excession_blog
+    stdout_logfile = /webapps/excession_blog/env_3.12.3/logs/supervisor.log
     redirect_stderr = true
     environment=LANG=en_US.UTF-8,LC_ALL=en_US.UTF-8
     ```
 
-    * [X] create the logs folder under env_3.10.6/
-    * [X] Run supervisorctl reread - this should read in the djangoblog.conf file.
+    * [X] create the logs folder under env_3.12.3/
+    * [X] Run supervisorctl reread - this should read in the excession_blog.conf file.
     * [X] Run supervisorctl update
-    * [X] Run supervisorctl status to see the running status of djangoblog
+    * [X] Run supervisorctl status to see the running status of excession_blog
 
 ## Install and Configure nginx
 
 * [X] Setup nginx
   * [X] cd /etc/nginx/sites-available/
-  * [X] create a djangoblog.conf file with the following contents:
+  * [X] create a excession_blog.conf file with the following contents:
 
     ```sh
     upstream djangoblog_app_server {
-        server unix:/webapps/djangoblog/env_3.10.6/run/gunicorn.sock fail_timeout=0;
+        server unix:/webapps/excession_blog/env_3.12.3/run/gunicorn.sock fail_timeout=0;
     }
 
     server {
         listen 80;
         server_name blog.excession.org;
 
-        access_log /webapps/djangoblog/env_3.10.6/logs/nginx-django-access.log;
-        error_log /webapps/djangoblog/env_3.10.6/logs/nginx-django-error.log;
+        access_log /webapps/djangoblog/env_3.12.3/logs/nginx-django-access.log;
+        error_log /webapps/djangoblog/env_3.12.3/logs/nginx-django-error.log;
 
         location /static/ {
-            alias /webapps/djangoblog/env_3.10.6/djangoblog/static/;
+            alias /webapps/djangoblog/env_3.12.3/excession_blog/static/;
         }
 
         location /media/ {
-            alias /webapps/djangoblog/env_3.10.6/djangoblog/media/;
+            alias /webapps/excession_blog/env_3.12.3/djangoblog/media/;
         }
 
         location / {
@@ -184,5 +206,5 @@ Create a virtual environment for Python (as root)
   * [X] ln -sf ../sites-available/djangoblog.conf .
   * [X] service nginx restart
   * [X] If everything is running as expected, go back into settingsprod.py and change DEBUG = True to False
-  * [X] Restart supervisor with the command: supervisorctl restart djangoblog
-  - Whenever you make a change to any files in the django project you must restart the supervisor for the changes to take effect.
+  * [X] Restart supervisor with the command: supervisorctl restart excession_blog
+    - Whenever you make a change to any files in the django project you must restart the supervisor for the changes to take effect.

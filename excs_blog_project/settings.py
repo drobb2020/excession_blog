@@ -39,8 +39,13 @@ else:
 
 ALLOWED_HOSTS = env.list('ALLOWED_HOSTS')
 
-SESSION_COOKIE_SECURE = env("SESSION_COOKIE")
-CSRF_COOKIE_SECURE = env("CSRF_COOKIE")
+if ENVIRONMENT == 'development':
+    SESSION_COOKIE_SECURE = False
+    CSRF_COOKIE_SECURE = False
+else:
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
+
 
 # Application definition
 
