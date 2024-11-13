@@ -15,8 +15,12 @@ Now log off the server and re-authenticate as root with the password you set and
 Install the following software packages on the server
 
 * [X] python3-pip
+* [X] python3-dev
 * [X] python-dev-is-python3
+* [X] pkg-config
+* [X] libcariro2-dev
 * [X] libpq-dev
+* [X] postgresql
 * [X] postgresql-contrib
 * [X] nginx
 
@@ -56,14 +60,14 @@ Create a virtual environment for Python (as root)
 
 ## Run a Pre Deployment Check
 
-* [ ] Run ```python manage.py check deploy```
-* [ ] Review the results in the console output
-* [ ] You should not have DEBUG set to True in deployment.
-  * [ ] Change the first line in the .env file (ENVIRONMENT) from development to production, this will change debug to False.
-* [ ] You have 'django.middleware.csrf.CsrfViewMiddleware' in your MIDDLEWARE, but you have not set CSRF_COOKIE_SECURE to True. Using a secure-only CSRF cookie makes it more difficult for network traffic sniffers to steal the CSRF token.
-  * [ ] The change of the ENVIRONMENT setting in .env will set the CSRF_COOKIE_SECURE to True
-* [ ] SESSION_COOKIE_SECURE is not set to True. Using a secure-only session cookie makes it more difficult for network traffic sniffers to hijack user sessions.
-  * [ ] The change of the ENVIRONMENT setting in .env will set the SESSION_COOKIE_SECURE to True
+* [X] Run ```python manage.py check deploy```
+* [X] Review the results in the console output
+* [X] You should not have DEBUG set to True in production.
+  * [X] Change the first line in the .env file (ENVIRONMENT) from development to production, this will change debug to False.
+* [X] You have 'django.middleware.csrf.CsrfViewMiddleware' in your MIDDLEWARE, but you have not set CSRF_COOKIE_SECURE to True. Using a secure-only CSRF cookie makes it more difficult for network traffic sniffers to steal the CSRF token.
+  * [X] The change of the ENVIRONMENT setting in .env will set the CSRF_COOKIE_SECURE to True
+* [X] SESSION_COOKIE_SECURE is not set to True. Using a secure-only session cookie makes it more difficult for network traffic sniffers to hijack user sessions.
+  * [X] The change of the ENVIRONMENT setting in .env will set the SESSION_COOKIE_SECURE to True
 * [ ] Your SECURE_SSL_REDIRECT setting is not set to True. Unless your site should be available over both SSL and non-SSL connections, you may want to either set this setting True or configure a load balancer or reverse-proxy server to redirect all connections to HTTPS.
   * [ ] In settings.py add the line SECURE_SSL_REDIRECT = True
 * [ ] You have not set a value for the SECURE_HSTS_SECONDS setting. If your entire site is served only over SSL, you may want to consider setting a value and enabling HTTP Strict Transport Security. Be sure to read the documentation first; enabling HSTS carelessly can cause serious, irreversible problems.
@@ -108,7 +112,7 @@ Create a virtual environment for Python (as root)
     #!/bin/bash
 
     NAME='excession_blog'
-    DJANGODIR=/webapps/excession_blog/env_3.12.3/excs_blog_project
+    DJANGODIR=/webapps/excession_blog/env_3.12.3/excession_blog/excs_blog_project
     SOCKFILE=/webapps/excession_blog/env_3.12.3/run/gunicorn.sock
     USER=django
     GROUP=webapps

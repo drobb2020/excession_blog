@@ -94,6 +94,7 @@
     "ipython",
     "Kilborn",
     "levelname",
+    "libcariro",
     "libpq",
     "logfile",
     "lxml",
