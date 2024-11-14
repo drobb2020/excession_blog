@@ -5742,3 +5742,5 @@ WARNING 2024-11-11 16:30:15,185 django.server basehttp.py (line 213) log_message
 WARNING 2024-11-11 16:30:15,185 django.server basehttp.py (line 213) log_message. "GET /static/tinymce/plugins/print/plugin.min.js HTTP/1.1" 404 2032
 WARNING 2024-11-11 16:30:15,185 django.server basehttp.py (line 213) log_message. "GET /static/tinymce/plugins/spellchecker/plugin.min.js HTTP/1.1" 404 2053
 INFO 2024-11-11 16:43:26,773 django.server basehttp.py (line 213) log_message. "GET / HTTP/1.1" 200 27605
+INFO 2024-11-14 14:15:59,431 django.utils.autoreload autoreload.py (line 668) run_with_reloader. Watching for file changes with StatReloader
+INFO 2024-11-14 14:34:59,406 django.utils.autoreload autoreload.py (line 668) run_with_reloader. Watching for file changes with StatReloader

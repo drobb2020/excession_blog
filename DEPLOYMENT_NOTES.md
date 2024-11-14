@@ -12,7 +12,7 @@ Now log off the server and re-authenticate as root with the password you set and
 
 ## Preparing the Server
 
-Install the following software packages on the server
+Install the following additional software packages on the server
 
 * [X] python3-pip
 * [X] python3-dev
@@ -23,6 +23,18 @@ Install the following software packages on the server
 * [X] postgresql
 * [X] postgresql-contrib
 * [X] nginx
+* [X] supervisor
+
+## Create a Local user & folder for the Django Project
+
+Run the following command to create a folder to host the project:
+
+* [X] ```mkdir -p /webapps/excession_blog```
+* [X] Create a Linux group and user to own the project
+  * [X] ```groupadd --system webapps```
+  * [X] ```useradd -d /webapps/excession_blog blogadmin -g webapps -M -r -s /bin/bash```
+  * [X] Set a password on blogadmin ```passwd blogadmin``` (Excess10n2411)
+  * [X] Add blogadmin to sudoers group ```usermod -aG sudo blogadmin```
 
 ## Creating the Database
 
@@ -30,9 +42,9 @@ Run the following commands to create the postgresql database:
 
 * [X] Login into the postgresql console: ```sudo -u postgres psql```
 * [X] Run the following set of commands
-  * [X] ```ALTER USER postgres with encrypted password 'your_password';```
+  * [X] ```ALTER USER postgres with encrypted password 'Excess10n';```
   * [X] ```CREATE DATABASE excsblogdb;```
-  * [X] ```CREATE USER excsblogadmin WITH PASSWORD 'excession246';```
+  * [X] ```CREATE USER excsblogadmin WITH PASSWORD 'excess10n2411';```
   * [X] ```ALTER ROLE excsblogadmin SET client_encoding TO 'utf8';```
   * [X] ```ALTER ROLE excsblogadmin SET default_transaction_isolation TO 'read committed';```
   * [X] ```ALTER ROLE excsblogadmin SET timezone TO 'UTC';```
@@ -45,16 +57,11 @@ Run the following commands to create the postgresql database:
 Create a virtual environment for Python (as root)
 
 * [X] Install virtualenv (or venv)
-  * [X] python3 -H pip3 install --upgrade pip
-  * [X] python3 -H pip3 install virtualenv (or venv)
-* [X] Create folder to host the project
-  * [X] mkdir -p /webapps/excession_blog
-* [X] Create a Linux group and user
-  * [X] groupadd --system webapps
-  * [X] useradd -d /webapps/excession_blog django -g webapps -M -r -s /bin/bash
+  * [X] python -m pip install --upgrade pip
+  * [X] python -m pip install venv
 * [X] Create environment
   * [X] cd /webapps/excession_blog
-  * [X] virtualenv env_3.12.3
+  * [X] python -m venv env_3.12.3
   * [X] source env_3.11.9/bin/activate
   * [X] cd env_3.12.3/
 
@@ -155,7 +162,7 @@ Create a virtual environment for Python (as root)
     ```sh
     [program:excession_blog]
     command = /webapps/excession_blog/env_3.12.3/bin/gunicorn_start
-    user = excession_blog
+    user = django
     stdout_logfile = /webapps/excession_blog/env_3.12.3/logs/supervisor.log
     redirect_stderr = true
     environment=LANG=en_US.UTF-8,LC_ALL=en_US.UTF-8
@@ -173,23 +180,23 @@ Create a virtual environment for Python (as root)
   * [X] create a excession_blog.conf file with the following contents:
 
     ```sh
-    upstream djangoblog_app_server {
+    upstream excession_blog_app_server {
         server unix:/webapps/excession_blog/env_3.12.3/run/gunicorn.sock fail_timeout=0;
     }
 
     server {
         listen 80;
-        server_name blog.excession.org;
+        server_name excs-s5131.excession.org;
 
-        access_log /webapps/djangoblog/env_3.12.3/logs/nginx-django-access.log;
-        error_log /webapps/djangoblog/env_3.12.3/logs/nginx-django-error.log;
+        access_log /webapps/excession_blog/env_3.12.3/logs/nginx-blog-access.log;
+        error_log /webapps/excession_blog/env_3.12.3/logs/nginx-blog-error.log;
 
         location /static/ {
-            alias /webapps/djangoblog/env_3.12.3/excession_blog/static/;
+            alias /webapps/excession_blog/env_3.12.3/excession_blog/static/;
         }
 
         location /media/ {
-            alias /webapps/excession_blog/env_3.12.3/djangoblog/media/;
+            alias /webapps/excession_blog/env_3.12.3/excession_blog/media/;
         }
 
         location / {
@@ -200,7 +207,7 @@ Create a virtual environment for Python (as root)
             proxy_redirect off;
 
             if (!-f $request_filename) {
-                proxy_pass http://djangoblog_app_server
+                proxy_pass http://excession_blog_app_server
             }
         }
     }
