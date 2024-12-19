@@ -11,8 +11,6 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
-from .logging import LOGGING
-from django.templatetags.static import static
 
 from environs import Env
 
@@ -32,10 +30,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = env("DJANGO_SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-if ENVIRONMENT == 'development':
-    DEBUG = True
-else:
-    DEBUG = False
+DEBUG = ENVIRONMENT == 'development'
 
 ALLOWED_HOSTS = env.list('ALLOWED_HOSTS')
 
@@ -61,8 +56,8 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "django.contrib.sites",
     # Modules
-    "allauth", 
-    "allauth.account", 
+    "allauth",
+    "allauth.account",
     "crispy_bootstrap5",
     "crispy_forms",
     "compressor",
@@ -84,7 +79,7 @@ INSTALLED_APPS = [
     "django_cleanup.apps.CleanupConfig",
 ]
 
-CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5" 
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 MIDDLEWARE = [
@@ -100,10 +95,10 @@ MIDDLEWARE = [
     "debug_toolbar.middleware.DebugToolbarMiddleware",
 ]
 
-INTERNAL_IPS = [ 
+INTERNAL_IPS = [
     "127.0.0.1",
     "localhost:8000"
-] 
+]
 
 ROOT_URLCONF = "excs_blog_project.urls"
 
@@ -204,15 +199,15 @@ MEDIA_ROOT = BASE_DIR / "media"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # Django-allauth Settings
-AUTH_USER_MODEL = "accounts.CustomUser" 
-SITE_ID = 1 
-LOGIN_REDIRECT_URL = "index" 
-LOGOUT_REDIRECT_URL = "index" 
-ACCOUNT_SESSION_REMEMBER = True 
-ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False 
-ACCOUNT_USERNAME_REQUIRED = False 
-ACCOUNT_AUTHENTICATION_METHOD = "email" 
-ACCOUNT_EMAIL_REQUIRED = True 
+AUTH_USER_MODEL = "accounts.CustomUser"
+SITE_ID = 1
+LOGIN_REDIRECT_URL = "index"
+LOGOUT_REDIRECT_URL = "index"
+ACCOUNT_SESSION_REMEMBER = True
+ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_AUTHENTICATION_METHOD = "email"
+ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_UNIQUE_EMAIL = True
 
 AUTHENTICATION_BACKENDS = [

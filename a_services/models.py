@@ -4,7 +4,6 @@ from django.contrib.auth import get_user_model
 from django.db import models
 from tinymce import models as tinymce_models
 
-from a_profile.models import Profile
 
 User = get_user_model()
 
