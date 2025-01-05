@@ -35,7 +35,7 @@
                         class="card-text"
                         style="font-size: 18px; font-weight: bold"
                       >{{ post.title|truncatechars:50 }}</h2>
-                      <p class="card-text">{{ post.subtitle|safe|truncatechars:75 }}</p>
+                      <p class="card-text">{{ post.subtitle|safe|truncatechars:45 }}</p>
                       <div class="d-flex justify-content-between mb-3">
                         <p class="card-text">
                           <small class="text-muted" x-text="post.author">{{ post.author.first_name }} {{ post.author.last_name }}</small>

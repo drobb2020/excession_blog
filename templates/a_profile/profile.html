@@ -21,8 +21,8 @@
         <div class="mt-4">{{ profile.fav_quote|linebreaksbr }}</div>
         {% endif %}
         <h5 class="text-center">{{ profile.fav_quote_author }}</h5>
-        <hr />
         {% if profile.social_website %}
+        <hr />
           <a
             title="Personal Website"
             href="{{ profile.social_website }}"
@@ -31,6 +31,10 @@
           ></a>
           {% endif %}
       </div>
+      <hr />
+      <h3>Welcome Survey</h3>
+      <p class="lead">If you are interested, please take our welcome survey so we can learn a bit more about you.</p>
+      <p class="lead">Please follow this link. <a href="http://127.0.0.1:8000/profile/surveys/2/start/">Welcome Survey</a></p>
     </div>
   </div>
 </div>

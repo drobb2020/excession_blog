@@ -353,17 +353,29 @@ Temporary Items
 An .env file is used to conceal sensitive information from the general public. The .env file should contain at least the following information:
 
 ```sh
-SECRET_KEY=your_secret_key_here
-DEBUG=True
-ALLOWED_HOSTS=127.0.0.1,localhost
-EMAIL_HOST=your_email_provider_address
-EMAIL_USER=sender_email_address
-EMAIL_PASSWORD=sender_email_password
-DB_NAME=database name
-DB_USER=database admin user
-DB_PASS=admin password
-DB_HOST=host name
-DB_PORT=port
+# Django
+ENVIRONMENT=development  # production
+DJANGO_SECRET_KEY=<your secret key>
+ALLOWED_HOSTS=localhost,127.0.0.1,<your domain name>
+
+# Database
+DB_NAME=<database name>
+DB_USER=<database user>
+DB_PASSWORD=<database password>
+DB_HOST=<database host address>
+DB_PORT=<database server port>
+
+# EMAIL
+EMAIL_HOST=<your email server url>
+EMAIL_USER=<email server login account>
+EMAIL_PASS=<email server login password>
+
+# LOGGING
+ROOT_LOG_LEVEL=INFO
+DJANGO_LOG_LEVEL=INFO
+DJANGO_SERVER_LOG_LEVEL=INFO
+DJANGO_TEMPLATE_LOG_LEVEL=INFO
+DJANGO_DB_LOG_LEVEL=INFO
 ```
 
 ## .markdownlint.json
@@ -403,7 +415,7 @@ Again if you plan to allow public access to your code you need to select an appr
 ```sh
 MIT License
 
-Copyright (c) 2024 David Robb
+Copyright (c) 2025 David Robb
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -444,16 +456,18 @@ A change log is a markdown file that allows you to document major changes that y
   - Updated Django to v5.0.6
 ```
 
-## Dockerfile
+## Docker Files
 
 If you are planning to run your application in a container here is a good working example of a Dockerfile to help you get started.
+
+### Dockerfile
 
 ```sh
 # Pull base image
 
 FROM python:3.11.9-slim-bullseye
 
-# Set environment varialbes
+# Set environment variables
 
 ENV PIP_DISABLE_PIP_VERSION_CHECK 1
 
@@ -480,7 +494,8 @@ RUN pip install -r requirements-dev.txt
 COPY . .
 ```
 
-.dockerignore
+### .dockerignore
+
 It is best practice to create a .dockerignore file to ensure that some files are not copied to the container since they are not required by the Django project. An example would be:
 
 ```sh
@@ -491,7 +506,8 @@ It is best practice to create a .dockerignore file to ensure that some files are
 .gitignore
 ```
 
-docker-compose.yml
+### docker-compose.yml
+
 A docker-compose file allows you to combine one or more services into a single file so all configured containers start at the same time and in the required order, for example a postgresql container starts before the django webapp so there is no connection issues.
 
 ```sh

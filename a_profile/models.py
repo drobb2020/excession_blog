@@ -36,21 +36,57 @@ class Profile(models.Model):
         return avatar
 
 
+class Survey(models.Model):
+    """ Survey created by a User or Admin."""
+    title = models.CharField(max_length=200)
+    is_active = models.BooleanField(default=False)
+    creator = models.ForeignKey(User, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.title
+
+
 class Question(models.Model):
-    question_text = models.CharField(max_length=200)
+    """ Question in a survey."""
+    survey = models.ForeignKey(Survey, on_delete=models.CASCADE)
+    prompt = models.CharField(max_length=128)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return self.question_text
+        return self.prompt
 
 
-class Choice(models.Model):
-    question = models.ForeignKey(Question, on_delete=models.CASCADE, related_name='choices')
-    choice_text = models.CharField(max_length=200)
-    votes = models.IntegerField(default=0)
+class Option(models.Model):
+    """ A multi-choice option available as part of a question."""
+    question = models.ForeignKey(Question, on_delete=models.CASCADE)
+    text = models.CharField(max_length=128)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return f"{self.choice_text} - {self.question}"
+        return self.text
+
+
+class Submission(models.Model):
+    """ A set of answer's to a survey's questions."""
+    survey = models.ForeignKey(Survey, on_delete=models.CASCADE)
+    is_complete = models.BooleanField(default=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.is_complete
+
+
+class Answer(models.Model):
+    """ An answer to a survey's question."""
+    submission = models.ForeignKey(Submission, on_delete=models.CASCADE)
+    option = models.ForeignKey(Option, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return f"{self.submission} - {self.option}"

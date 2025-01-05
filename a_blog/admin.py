@@ -23,7 +23,7 @@ class CommentAdmin(ModelAdmin):
 
 @admin.register(Post)
 class PostAdmin(ModelAdmin, ImportExportModelAdmin):
-    list_display = ("title", "author", "status", "get_tags", "created_at")
+    list_display = ("title", "author", "status", "get_tags", "created_at", "is_featured")
     actions = ["post_review_action", "post_published_action"]
     import_form_class = ImportForm
     export_form_class = ExportForm

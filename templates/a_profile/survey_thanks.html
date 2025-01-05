@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Submit - Surveys{% endblock title %}
+
+{% block content %}
+
+<div class="ui center aligned basic very padded segment">
+    <h1 class="ui header">Thanks for taking the survey {{ survey.title }}! All done.
+        <div class="sub header">You can go back to browsing the blog now</div>
+    </h1>
+</div>
+
+{% endblock content %}

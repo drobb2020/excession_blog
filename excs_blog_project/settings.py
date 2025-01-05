@@ -12,12 +12,12 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 
-from environs import Env
+# from environs import Env
 
-env = Env()
-Env.read_env()
+# env = Env()
+# Env.read_env()
 
-ENVIRONMENT = env('ENVIRONMENT', default='production')
+# ENVIRONMENT = env('ENVIRONMENT', default='production')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -27,14 +27,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env("DJANGO_SECRET_KEY")
+SECRET_KEY = "ho^fjevcay4)c^c)yae8wd+)31ns!2m&gq=$_rq_&eogj3yy6n"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = ENVIRONMENT == 'development'
+DEBUG = True
 
-ALLOWED_HOSTS = env.list('ALLOWED_HOSTS')
+ALLOWED_HOSTS = ["*"]
 
-if ENVIRONMENT == 'development':
+if DEBUG == True:
     SESSION_COOKIE_SECURE = False
     CSRF_COOKIE_SECURE = False
 else:
@@ -124,7 +124,7 @@ WSGI_APPLICATION = "excs_blog_project.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-if ENVIRONMENT == 'development':
+if DEBUG == True:
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.sqlite3",
@@ -135,11 +135,11 @@ else:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
-            'NAME': env('DB_NAME'),
-            'USER': env('DB_USER'),
-            'PASSWORD': env('DB_PASSWORD'),
-            'HOST': env('DB_HOST'),
-            'PORT': env('DB_PORT'),
+            'NAME': 'excsblogdb',
+            'USER': 'excsblogadmin',
+            'PASSWORD': 'excession246',
+            'HOST': 'localhost',
+            'PORT': 5432,
         }
     }
 
@@ -221,12 +221,12 @@ ADMINS = [
 ]
 
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-EMAIL_HOST = env('EMAIL_HOST')
-EMAIL_HOST_USER = env('EMAIL_USER')
-EMAIL_HOST_PASSWORD = env('EMAIL_PASS')
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'drobb2011@gmail.com'
+EMAIL_HOST_PASSWORD = 'lhymgydwlmzoftqt'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = f"Django App Name {env('EMAIL_USER')}"
+DEFAULT_FROM_EMAIL = 'drobb2011@gmail.com'
 ACCOUNT_EMAIL_SUBJECT_PREFIX = ''
 
 TINYMCE_DEFAULT_CONFIG = {
@@ -250,5 +250,3 @@ UNFOLD = {
     "SITE_HEADER": "Excession Development Blog",
     "SITE_SYMBOL": "bookmark",
 }
-
-PAGE_SIZE = 6

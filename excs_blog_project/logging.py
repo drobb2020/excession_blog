@@ -1,12 +1,11 @@
 from pathlib import Path
 
-from environs import Env
+# from environs import Env
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
-env = Env()
-Env.read_env()
+# env = Env()
+# Env.read_env()
 
 
 DEFAULT_TIME_FORMAT = "%d/%b/%Y %H:%M:%S"
@@ -40,31 +39,31 @@ LOGGING = {
             "formatter": "console",
         },
         "file-root": {
-            "level": env("ROOT_LOG_LEVEL", default="INFO"),
+            "level": "INFO",
             "class": "logging.FileHandler",
             "formatter": "verbose",
             "filename": BASE_DIR / "logs/root-logger.log",
         },
         "file-django": {
-            "level": env("DJANGO_LOG_LEVEL", default="INFO"),
+            "level": "INFO",
             "class": "logging.FileHandler",
             "formatter": "verbose",
             "filename": BASE_DIR / "logs/django.log",
         },
         "file-django-server": {
-            "level": env("DJANGO_SERVER_LOG_LEVEL", default="INFO"),
+            "level": "INFO",
             "class": "logging.FileHandler",
             "formatter": "verbose",
             "filename": BASE_DIR / "logs/django-server.log",
         },
         "file-django-template": {
-            "level": env("DJANGO_TEMPLATE_LOG_LEVEL", default="INFO"),
+            "level": "INFO",
             "class": "logging.FileHandler",
             "formatter": "verbose",
             "filename": BASE_DIR / "logs/django-template.log",
         },
         "file-django-db": {
-            "level": env("DJANGO_DB_LOG_LEVEL", default="INFO"),
+            "level": "INFO",
             "class": "logging.FileHandler",
             "formatter": "verbose",
             "filename": BASE_DIR / "logs/django-database.log",
@@ -79,26 +78,26 @@ LOGGING = {
     },
     "loggers": {
         "": {
-            "level": env("ROOT_LOG_LEVEL", default="INFO"),
+            "level": "INFO",
             "handlers": ["console", "file-root", "mail_admins"],
         },
         "django": {
             "handlers": ["console", "file-django", "mail_admins"],
-            "level": env("DJANGO_LOG_LEVEL", default="INFO"),
+            "level": "INFO",
             "propagate": False,
         },
         "django.server": {
             "handlers": ["file-django-server"],
-            "level": env("DJANGO_SERVER_LOG_LEVEL", default="INFO"),
+            "level": "INFO",
             "propagate": True,
         },
         "django.template": {
             "handlers": ["file-django-template"],
             "propagate": True,
-            "level": env("DJANGO_TEMPLATE_LOG_LEVEL", default="INFO"),
+            "level": "INFO",
         },
         "django.db.backends": {
-            "level": env("DJANGO_DB_LOG_LEVEL", default="INFO"),
+            "level": "INFO",
             "handlers": ["file-django-db"],
             "propagate": False,
         },

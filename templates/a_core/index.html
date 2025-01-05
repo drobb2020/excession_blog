@@ -25,7 +25,7 @@
             <div class="card" style="width: 15rem;">
               <img src="{{ post.post_image.url }}" class="card-img-top" alt="{{ post.title }}">
               <div class="card-body">
-                <h5 class="card-title">{{ post.title }}</h5>
+                <h5 class="card-title">{{ post.title|truncatechars:18 }}</h5>
               </div>
             </div>
           </a>

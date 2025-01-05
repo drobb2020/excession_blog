@@ -24,7 +24,6 @@ def post_list(request):
 
 class TagListView(ListView):
     model = Post
-    paginate_by = 10
     context_object_name = "posts"
 
     def get_queryset(self):
