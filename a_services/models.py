@@ -12,7 +12,7 @@ class Review(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="review")
     email = models.EmailField(max_length=100)
     review_title = models.CharField(max_length=150)
-    comment = models.TextField(max_length=1250)
+    comment = tinymce_models.HTMLField()
     created_at = models.DateTimeField(auto_now_add=True)
     approved = models.BooleanField(default=False)
 

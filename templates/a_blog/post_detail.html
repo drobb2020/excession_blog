@@ -56,16 +56,6 @@
       {% endif %}
     </div>
     <!-- Comment form & comments for this post -->
-     <hr class="mt-4" />
-    <div class="col-md-10">
-      <h2>Add a comment about this post</h2>
-      <form action="." method="post">
-        {% csrf_token %}
-        {{ form.media }}
-        {{ form|crispy }}
-        <button type="submit" class="btn btn-secondary btn-lg my-2"><i class="fa-regular fa-check"></i> Comment</button>
-      </form>
-    </div>
     <hr class="mt-4" />
     <div class="col-md-10">
       <h2>Comments</h2>
@@ -84,8 +74,18 @@
         </div>
         {% endfor %}
       {% else %}
-        <p class="lead text-white">No comments have been made about this post. Be the first to leave a comment</p>
+        <p class="lead text-white">No comments have been made about this post. Be the first to leave a comment.</p>
       {% endif %}
+    </div>
+    <hr class="mt-4" />
+    <div class="col-md-10">
+      <h2>Add a comment about this post</h2>
+      <form action="." method="post">
+        {% csrf_token %}
+        {{ form.media }}
+        {{ form|crispy }}
+        <button type="submit" class="btn btn-secondary btn-lg my-2"><i class="fa-regular fa-check"></i> Comment</button>
+      </form>
     </div>
   </div>
 </div>
