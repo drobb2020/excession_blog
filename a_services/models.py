@@ -1,9 +1,9 @@
 import uuid
 
+from autoslug import AutoSlugField
 from django.contrib.auth import get_user_model
 from django.db import models
 from tinymce import models as tinymce_models
-
 
 User = get_user_model()
 
@@ -70,3 +70,18 @@ class EmailTemplate(models.Model):
 
     def __str__(self):
         return self.subject
+
+
+class Task(models.Model):
+    title = models.CharField(max_length=255)
+    slug = AutoSlugField(populate_from="title", unique=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="task")
+    description = models.TextField()
+    due_date = models.DateField()
+    is_completed = models.BooleanField(default=False)
+    completed_date = models.DateField(null=True, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.title

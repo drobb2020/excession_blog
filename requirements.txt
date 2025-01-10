@@ -62,6 +62,8 @@ django-allauth==65.3.0
     # via -r requirements.in
 django-appconf==1.0.6
     # via django-compressor
+django-autoslug==1.9.9
+    # via -r requirements.in
 django-cache-url==3.4.5
     # via environs
 django-cleanup==9.0.0

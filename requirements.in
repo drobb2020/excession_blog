@@ -1,6 +1,7 @@
 crispy-bootstrap5==2024.10
 Django==5.1.4
 django-allauth==65.3.0
+django-autoslug==1.9.9
 django-cleanup==9.0.0
 django-compressor==4.5.1
 django-crispy-forms==2.3

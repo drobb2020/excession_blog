@@ -38,6 +38,7 @@
             {% if user.is_engineer %}
               <a class="dropdown-item" href="{% url 'ticket-queue' %}">Ticket Queue</a>
               <a class="dropdown-item" href="{% url 'workspace' %}">My Ticket Workspace</a>
+              <a class="dropdown-item" href="{% url 'tasks' %}">My Tasks</a>
               <div class="dropdown-divider"></div>
             {% elif user.is_customer %}
               <a href="{% url 'create-ticket' %}" class="dropdown-item">Create Ticket</a>

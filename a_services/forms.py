@@ -1,6 +1,6 @@
 from django import forms
 
-from .models import Review, Subscriber, Ticket
+from .models import Review, Subscriber, Task, Ticket
 
 
 class ReviewForm(forms.ModelForm):
@@ -37,3 +37,34 @@ class SubscribeForm(forms.ModelForm):
     class Meta:
         model = Subscriber
         fields = ["name", "email"]
+
+
+class TaskForm(forms.ModelForm):
+    title = forms.CharField(widget=forms.TextInput(attrs={"placeholder": "Add a new Task"}))
+    description = forms.CharField(widget=forms.Textarea(attrs={"placeholder": "Add a description"}))
+    due_date = forms.DateField(widget=forms.DateInput(attrs={"type": "date"}))
+
+    class Meta:
+        model = Task
+        fields = [
+            "title",
+            "description",
+            "due_date",
+            "is_completed",
+        ]
+
+
+class TaskUpdateForm(forms.ModelForm):
+    title = forms.CharField(widget=forms.TextInput(attrs={"placeholder": "Add a new Task"}))
+    description = forms.CharField(widget=forms.Textarea(attrs={"placeholder": "Add a description"}))
+    completed_date = forms.DateField(widget=forms.DateInput(attrs={"type": "date"}))
+
+    class Meta:
+        model = Task
+        fields = [
+            "title",
+            "description",
+            "due_date",
+            "is_completed",
+            "completed_date",
+        ]

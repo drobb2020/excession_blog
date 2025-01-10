@@ -13,6 +13,7 @@
     "appconf",
     "asctime",
     "asgiref",
+    "autoslug",
     "backcolor",
     "bidi",
     "blogadmin",

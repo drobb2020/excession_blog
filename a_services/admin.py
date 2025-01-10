@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.contrib import admin
 
-from .models import EmailTemplate, Review, Subscriber, Ticket
+from .models import EmailTemplate, Review, Subscriber, Task, Ticket
 
 
 @admin.register(Review)
@@ -39,7 +39,29 @@ class SubscriberAdmin(admin.ModelAdmin):
 
 @admin.register(EmailTemplate)
 class EmailTemplateAdmin(admin.ModelAdmin):
-    list_display = (
-        'subject',
-    )
+    list_display = ('subject', 'message')
+    raw_id_fields = ('recipients',)
     list_filter = ('subject', 'message')
+
+
+@admin.register(Task)
+class TaskAdmin(admin.ModelAdmin):
+    list_display = (
+        'title',
+        'user',
+        'description',
+        'due_date',
+        'is_completed',
+        'completed_date',
+        'created_at',
+        'updated_at',
+    )
+    list_filter = (
+        'due_date',
+        'is_completed',
+        'completed_date',
+        'created_at',
+        'updated_at',
+    )
+    search_fields = ('slug',)
+    date_hierarchy = 'created_at'

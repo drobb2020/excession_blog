@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}| {{ task.title }}{% endblock title %}
+
+{% block content %}
+
+<div class="card text-white bg-secondary mb-3 rounded-2" style="max-width: 80rem;">
+    <div class="card-header">{{ task.title }}</div>
+    <div class="card-body">
+      <p class="card-text">{{ task.description }}</p>
+      <p class="card-text">Added on: {{ task.created_at }}</p>
+      <p class="card-text">
+        {% if task.is_completed == True %}
+          <p class="lead"><i class="fa-sharp fa-regular fa-circle-check" style="color: rgb(19, 190, 19);"></i> Task Completed on {{ task.completed_date }}</p>
+        {% else %}
+          <p class="lead"><i class="fa-sharp fa-regular fa-circle-xmark" style="color: red;"></i> Task Incomplete</p>
+        {% endif %}
+      </p>
+    </div>
+    <div class="card-footer">
+      <a href="{% url 'task-update' task.id %}" class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i> Edit</a>
+      <a href="{% url 'task-delete' task.id %}" class="btn btn-secondary"><i class="fa-solid fa-delete-right"></i> Delete</a>
+      <a href="{% url 'tasks' %}" class="btn btn-secondary"><i class="fa-solid fa-arrow-turn-down-left"></i> Return</a>
+    </div>
+  </div>
+
+{% endblock content %}

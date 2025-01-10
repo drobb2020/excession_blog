@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}| Delete Task{% endblock title %}
+
+{% block content %}
+
+<div class="mt-5" style="max-width: 60rem;">
+    <form action="" method="post">
+        {% csrf_token %}
+        <p class="lead">{{ task.title}}. Are you sure you want to delete this task?</p>
+        <button class="btn btn-warning" type="submit"><i class="fa-sharp fa-regular fa-square-check"></i> Delete Task</button>
+        <a href="{% url 'tasks' %}" class="btn btn-secondary"><i class="fa-solid fa-arrow-turn-down-left"></i> Return</a>
+    </form>
+</div>
+
+{% endblock content %}

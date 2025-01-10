@@ -11,8 +11,8 @@ from django.views.generic import TemplateView
 
 from a_profile.models import Profile
 
-from .forms import CreateTicketForm, ReviewForm, SubscribeForm, UpdateTicketForm
-from .models import Review, Ticket
+from .forms import CreateTicketForm, ReviewForm, SubscribeForm, TaskForm, TaskUpdateForm, UpdateTicketForm
+from .models import Review, Task, Ticket
 
 User = get_user_model()
 
@@ -253,3 +253,56 @@ def subscribe(request):
         form = SubscribeForm()
         context = {"form": form}
         return render(request, "a_services/subscribe.html", context)
+
+
+@login_required
+def task_list(request):
+    tasks = Task.objects.all()
+    context = {"tasks": tasks}
+    return render(request, "a_services/task-list.html", context)
+
+
+@login_required
+def task_create(request):
+    if request.method == "POST":
+        form = TaskForm(request.POST)
+        if form.is_valid():
+            task = form.save(commit=False)
+            task.user = request.user
+            task.save()
+            return redirect("tasks")
+    else:
+        form = TaskForm()
+        context = {"form": form}
+        return render(request, "a_services/task-create.html", context)
+
+
+@login_required
+def task_detail(request, pk):
+    task = Task.objects.get(pk=pk)
+    context = {"task": task}
+    return render(request, "a_services/task-detail.html", context)
+
+
+@login_required
+def task_update(request, pk):
+    task = Task.objects.get(pk=pk)
+    if request.method == "POST":
+        form = TaskUpdateForm(request.POST, instance=task)
+        if form.is_valid():
+            form.save()
+            return redirect("tasks")
+    else:
+        form = TaskUpdateForm(instance=task)
+        context = {"form": form}
+        return render(request, "a_services/task-update.html", context)
+
+
+@login_required
+def task_delete(request, pk):
+    task = Task.objects.get(pk=pk)
+    if request.method == "POST":
+        task.delete()
+        return redirect("tasks")
+    context = {"task": task}
+    return render(request, "a_services/task-delete.html", context)
