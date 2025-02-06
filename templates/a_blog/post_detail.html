@@ -2,6 +2,7 @@
 
 {% load static %}
 {% load crispy_forms_tags %}
+{% load heroicons %}
 
 {% block title %}| {{ post.slug }}{% endblock title %}
 
@@ -48,11 +49,11 @@
     </div>
     <!-- Generate PDF button -->
     <div class="col-md-10">
-      <a href="{% url 'posts' %}" class="btn btn-secondary my-2"><i class="fa-regular fa-arrow-left"></i> All Posts</a>
-      <a href="{% url 'generate-pdf' post.slug %}" class="btn btn-secondary my-2"><i class="fa-regular fa-file-pdf"></i> Generate PDF</a>
+      <a href="{% url 'posts' %}" class="btn btn-secondary my-2">{% heroicon_outline "arrow-turn-down-left" size=40 %} All Posts</a>
+      <a href="{% url 'generate-pdf' post.slug %}" class="btn btn-secondary my-2">{% heroicon_outline "document" size=40 %} Generate PDF</a>
       {% if user == post.author %}
-      <a href="{% url 'post-update' post.slug %}" class="btn btn-secondary my-2"><i class="fa-regular fa-pen-to-square"></i> Update Post</a>
-      <a href="{% url 'post-delete' post.slug %}" class="btn btn-danger my-2"><i class="fa-regular fa-trash"></i> Delete Post</a>
+      <a href="{% url 'post-update' post.slug %}" class="btn btn-secondary my-2">{% heroicon_outline "pencil-square" size=40 %} Update Post</a>
+      <a href="{% url 'post-delete' post.slug %}" class="btn btn-danger my-2">{% heroicon_outline "trash" size=40 %} Delete Post</a>
       {% endif %}
     </div>
     <!-- Comment form & comments for this post -->
@@ -84,7 +85,7 @@
         {% csrf_token %}
         {{ form.media }}
         {{ form|crispy }}
-        <button type="submit" class="btn btn-secondary btn-lg my-2"><i class="fa-regular fa-check"></i> Comment</button>
+        <button type="submit" class="btn btn-secondary btn-lg my-2">{% heroicon_outline "check-circle" size=40 %} Add Comment</button>
       </form>
     </div>
   </div>

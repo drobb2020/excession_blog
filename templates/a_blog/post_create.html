@@ -2,6 +2,7 @@
 
 {% load static %}
 {% load crispy_forms_tags %}
+{% load heroicons %}
 
 {% block title %}| Create a Post{% endblock title %}
 
@@ -16,7 +17,7 @@
                 {% csrf_token %}
                 {{ form.media }}
                 {{ form|crispy }}
-                <button type="submit" class="btn btn-secondary btn-lg my-2"><i class="fa-regular fa-check"></i> Create</button>
+                <button type="submit" class="btn btn-secondary btn-lg my-2">{% heroicon_outline "check-circle" size=40 %} Create Post</button>
             </form>
         </div>
     </div>
