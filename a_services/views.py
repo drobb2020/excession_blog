@@ -11,7 +11,15 @@ from django.views.generic import TemplateView
 
 from a_profile.models import Profile
 
-from .forms import CreateTicketForm, ReviewForm, SubscribeForm, TaskForm, TaskUpdateForm, UpdateTicketForm
+from .forms import (
+    CreateTicketForm,
+    ReviewApprovalForm,
+    ReviewForm,
+    SubscribeForm,
+    TaskForm,
+    TaskUpdateForm,
+    UpdateTicketForm,
+)
 from .models import Review, Task, Ticket
 
 User = get_user_model()
@@ -34,6 +42,29 @@ def review(request):
             return redirect("reviews")
     context = {"form": form, "reviews": reviews}
     return render(request, "a_services/reviews.html", context)
+
+
+@login_required
+def review_unapproved(request):
+    reviews = Review.objects.filter(approved=False)
+    context = {"reviews": reviews}
+    return render(request, "a_services/review_unapproved.html", context)
+
+
+@login_required
+def review_approve(request, pk):
+    review = Review.objects.get(pk=pk)
+    form = ReviewApprovalForm(instance=review)
+    if request.method == "POST":
+        form = ReviewApprovalForm(request.POST, instance=review)
+        if form.is_valid():
+            approval = form.save(commit=False)
+            approval.approved = True
+            approval.save()
+            messages.success(request, "Review has been approved.")
+            return redirect("reviews")
+    context = {"form": form}
+    return render(request, "a_services/review_approve.html", context)
 
 
 class CookieView(TemplateView):

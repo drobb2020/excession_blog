@@ -34,6 +34,7 @@
           <div class="dropdown-menu">
             {% if user.is_superuser %}
             <a class="dropdown-item" href="{% url 'post-status' %}">Update Post Status</a>
+            <a href="{% url 'review-unapproved' %}" class="dropdown-item">Pending Reviews</a>
             {% endif %}
             {% if user.is_engineer %}
               <a class="dropdown-item" href="{% url 'ticket-queue' %}">Ticket Queue</a>

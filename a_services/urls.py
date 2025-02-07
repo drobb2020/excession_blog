@@ -4,6 +4,8 @@ from . import views
 
 urlpatterns = [
     path('', views.review, name="reviews"),
+    path('review_unapproved/', views.review_unapproved, name="review-unapproved"),
+    path('review_approve/<int:pk>', views.review_approve, name="review-approve"),
     path('cookies/', views.CookieView.as_view(), name="cookies"),
     path("copyright/", views.CopyrightView.as_view(), name="copyright"),
     path("dcma/", views.DcmaPolicyView.as_view(), name="dcma"),

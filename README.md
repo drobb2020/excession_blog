@@ -85,7 +85,7 @@ Write something meaningful!
 
 * [Django](https://www.djangoproject.com/)
 * [Bootstrap](https://getbootstrap.com/) (Bootswatch theme - Slate)
-* [Font Awesome](https://fontawesome.com/)
+* [Heroicons](https://heroicons.com/)
 * [JQuery](https://jquery.com/)
 * [HTMX](https://htmx.org/)
 * [Alpine.js](https://alpinejs.dev/)

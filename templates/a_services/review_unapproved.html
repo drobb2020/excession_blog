@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}| Pending Reviews{% endblock title %}
+
+{% block content %}
+
+<div class="container mt-5">
+    <h1 class="mb-3">Pending Reviews</h1>
+        <div class="row">
+            <div class="col-md-12">
+                {% for review in reviews %}
+                <div class="card text-white bg-primary mb-3" style="max-width: 80rem;">
+                    <div class="card-header">{{ review.review_title }}</div>
+                    <div class="card-body">
+                        <h4 class="card-title">{{ review.comment|safe }}</h4>
+                        <p class="card-text">Reviewed by: {{ review.user }}, ({{ review.email }}) on {{ review.created_at }}</p>
+                    </div>
+                </div>
+                <hr class="mt-4 bg-primary border-3 border-light" />
+                <a href="{% url 'review-approve' review.id %}" class="btn btn-info">Approve</a>
+                {% endfor %}
+            </div>
+        </div>
+    <hr class="mt-4 bg-primary border-3 border-light" />
+</div>
+
+{% endblock content %}

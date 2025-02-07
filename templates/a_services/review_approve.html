@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% load crispy_forms_tags %}
+{% load heroicons %}
+
+{% block title %}| Approve Pending Reviews{% endblock title %}
+
+{% block content %}
+
+<div class="container mt-5" style="max-width: 67rem;">
+  <h1 class="mb-3">Approve Review</h1>
+  <form action="" method="post">
+    {% csrf_token %}
+    {{ form.media }}
+    {{ form|crispy }}
+    <button class="btn btn-success w-100 mt-3" type="submit">
+      {% heroicon_outline "check-circle" size=40 %}
+      Approve
+    </button>
+  </form>
+</div>
+
+{% endblock content %}

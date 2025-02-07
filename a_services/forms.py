@@ -17,6 +17,16 @@ class ReviewForm(forms.ModelForm):
         ]
 
 
+class ReviewApprovalForm(forms.ModelForm):
+
+    class Meta:
+        model = Review
+        fields = [
+            "review_title",
+            "approved",
+        ]
+
+
 class CreateTicketForm(forms.ModelForm):
     class Meta:
         model = Ticket
